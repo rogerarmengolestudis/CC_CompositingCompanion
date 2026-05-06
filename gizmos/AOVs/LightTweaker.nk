@@ -1,0 +1,174 @@
+set cut_paste_input [stack 0]
+version 15.1 v2
+push $cut_paste_input
+Group {
+ name LightTweeker1
+ tile_color 0x85bf9cff
+ label "\[value in1]"
+ selected true
+ xpos -15044
+ ypos -1889
+ addUserKnob {20 LightMenu l Light}
+ addUserKnob {41 in1 l AOV t "Select wich Light AOV to tweak" T AOV_Selector.in1}
+ addUserKnob {41 mix T Merge1.mix}
+ addUserKnob {26 text l "<b><font color=#ffffff>Color Tweek</font><b>"}
+ addUserKnob {20 master l "@b;master" n 1}
+ addUserKnob {41 saturation T ColorCorrect1.saturation}
+ addUserKnob {41 saturation_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.saturation_panelDropped}
+ addUserKnob {41 contrast T ColorCorrect1.contrast}
+ addUserKnob {41 contrast_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.contrast_panelDropped}
+ addUserKnob {41 gamma T ColorCorrect1.gamma}
+ addUserKnob {41 gamma_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.gamma_panelDropped}
+ addUserKnob {41 gain T ColorCorrect1.gain}
+ addUserKnob {41 gain_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.gain_panelDropped}
+ addUserKnob {41 offset_panelDropped l "panel dropped state" +HIDDEN T ColorCorrect1.offset_panelDropped}
+ addUserKnob {20 "" n -1}
+ addUserKnob {20 shadows l "@b;shadows" n 1}
+ shadows 0
+ addUserKnob {41 shadows.saturation l saturation T ColorCorrect1.shadows.saturation}
+ addUserKnob {41 shadows.saturation_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.shadows.saturation_panelDropped}
+ addUserKnob {41 shadows.contrast l contrast T ColorCorrect1.shadows.contrast}
+ addUserKnob {41 shadows.contrast_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.shadows.contrast_panelDropped}
+ addUserKnob {41 shadows.gamma l gamma T ColorCorrect1.shadows.gamma}
+ addUserKnob {41 shadows.gamma_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.shadows.gamma_panelDropped}
+ addUserKnob {41 shadows.gain l gain T ColorCorrect1.shadows.gain}
+ addUserKnob {41 shadows.gain_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.shadows.gain_panelDropped}
+ addUserKnob {41 shadows.offset_panelDropped l "panel dropped state" +HIDDEN T ColorCorrect1.shadows.offset_panelDropped}
+ addUserKnob {20 "" n -1}
+ addUserKnob {20 midtones l "@b;midtones" n 1}
+ midtones 0
+ addUserKnob {41 midtones.saturation l saturation T ColorCorrect1.midtones.saturation}
+ addUserKnob {41 midtones.saturation_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.midtones.saturation_panelDropped}
+ addUserKnob {41 midtones.contrast l contrast T ColorCorrect1.midtones.contrast}
+ addUserKnob {41 midtones.contrast_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.midtones.contrast_panelDropped}
+ addUserKnob {41 midtones.gamma l gamma T ColorCorrect1.midtones.gamma}
+ addUserKnob {41 midtones.gamma_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.midtones.gamma_panelDropped}
+ addUserKnob {41 midtones.gain l gain T ColorCorrect1.midtones.gain}
+ addUserKnob {41 midtones.gain_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.midtones.gain_panelDropped}
+ addUserKnob {41 midtones.offset_panelDropped l "panel dropped state" +HIDDEN T ColorCorrect1.midtones.offset_panelDropped}
+ addUserKnob {20 "" n -1}
+ addUserKnob {20 highlights l "@b;highlights" n 1}
+ highlights 0
+ addUserKnob {41 highlights.saturation l saturation T ColorCorrect1.highlights.saturation}
+ addUserKnob {41 highlights.saturation_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.highlights.saturation_panelDropped}
+ addUserKnob {41 highlights.contrast l contrast T ColorCorrect1.highlights.contrast}
+ addUserKnob {41 highlights.contrast_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.highlights.contrast_panelDropped}
+ addUserKnob {41 highlights.gamma l gamma T ColorCorrect1.highlights.gamma}
+ addUserKnob {41 highlights.gamma_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.highlights.gamma_panelDropped}
+ addUserKnob {41 highlights.gain l gain T ColorCorrect1.highlights.gain}
+ addUserKnob {41 highlights.gain_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.highlights.gain_panelDropped}
+ addUserKnob {41 highlights.offset_panelDropped l "panel dropped state" +HIDDEN T ColorCorrect1.highlights.offset_panelDropped}
+ addUserKnob {20 "" n -1}
+ addUserKnob {26 ""}
+ addUserKnob {26 signature l "" +STARTLINE T "<font color=#aaaaaa><font size=\"4\">Light Tweeker</font><font size=\"3\"> v1.0 - by Roger Armengol Martí</font>"}
+}
+ Input {
+  inputs 0
+  xpos -587
+  ypos 389
+ }
+ Dot {
+  name Dot89
+  xpos -553
+  ypos 511
+ }
+set N3ba16000 [stack 0]
+ Dot {
+  name Dot124
+  xpos -653
+  ypos 511
+ }
+ Shuffle2 {
+  fromInput1 {{0} B}
+  fromInput2 {{0} B}
+  name AOV_Selector
+  label "\[value in1]"
+  xpos -687
+  ypos 579
+ }
+set N3ba16800 [stack 0]
+push 0
+ Viewer {
+  inputs 2
+  frame_range 1-100
+  input_number 1
+  monitorOutNDISenderName "NukeX - LIT3A_armengolMartiRoger_nuke_v05 - Viewer1"
+  name Viewer1
+  xpos -422
+  ypos 710
+ }
+push $N3ba16000
+ Dot {
+  name Dot2
+  xpos -421
+  ypos 511
+ }
+ Dot {
+  name Dot1
+  xpos -421
+  ypos 869
+ }
+ Input {
+  inputs 0
+  name mask
+  xpos -843
+  ypos 607
+  number 1
+ }
+push $N3ba16800
+ ColorCorrect {
+  gain {1 1 1 1}
+  gain_panelDropped true
+  name ColorCorrect1
+  xpos -687
+  ypos 685
+ }
+ Dot {
+  name Dot171
+  xpos -653
+  ypos 792
+ }
+push $N3ba16800
+push $N3ba16000
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 rgb
+  fromInput2 {{0} B}
+  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle64
+  label "\[value in1]"
+  xpos -587
+  ypos 576
+ }
+ Merge2 {
+  inputs 2
+  operation from
+  name Merge8
+  xpos -587
+  ypos 638
+  disable {{parent.addButton}}
+ }
+ Merge2 {
+  inputs 2+1
+  operation plus
+  name Merge1
+  xpos -587
+  ypos 789
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{0} B A}
+  fromInput2 {{1} B A}
+  in2 alpha
+  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 rgba.alpha 1 0 rgba.alpha 0 3"
+  name Shuffle1
+  label "\[value in1]"
+  xpos -587
+  ypos 860
+ }
+ Output {
+  name Output1
+  xpos -587
+  ypos 1165
+ }
+end_group

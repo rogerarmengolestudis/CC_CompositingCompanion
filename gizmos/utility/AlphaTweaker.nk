@@ -1,0 +1,181 @@
+set cut_paste_input [stack 0]
+version 15.1 v2
+push $cut_paste_input
+Group {
+ name AlphaTweaker1
+ tile_color 0x85bf9cff
+ selected true
+ xpos -14775
+ ypos -2055
+ addUserKnob {20 properties l Properties}
+ addUserKnob {4 generateAlpha l "Alpha From" t "Generate alpha from\nRed\nGreen\nBlue\nR+G+B Median" M {None Red Green Blue Median}}
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {7 alphaExpand l "Alpha Clean" t "Use positive values to eliminate unwanted artefacts" R -5 5}
+ addUserKnob {6 precisionMode l "Precision Mode" +STARTLINE}
+ addUserKnob {6 multiplyOnOff l Multiply t "Multiply by the original Alpha" +STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {20 master l "@b;master" n 1}
+ addUserKnob {41 saturation_panelDropped l "panel dropped state" +HIDDEN T ColorCorrect1.saturation_panelDropped}
+ addUserKnob {41 contrast T ColorCorrect1.contrast}
+ addUserKnob {41 contrast_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.contrast_panelDropped}
+ addUserKnob {41 gamma T ColorCorrect1.gamma}
+ addUserKnob {41 gamma_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.gamma_panelDropped}
+ addUserKnob {41 gain T ColorCorrect1.gain}
+ addUserKnob {41 gain_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.gain_panelDropped}
+ addUserKnob {41 offset T ColorCorrect1.offset}
+ addUserKnob {41 offset_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.offset_panelDropped}
+ addUserKnob {20 "" n -1}
+ addUserKnob {20 shadows l "@b;shadows" n 1}
+ shadows 0
+ addUserKnob {41 shadows.saturation_panelDropped l "panel dropped state" +HIDDEN T ColorCorrect1.shadows.saturation_panelDropped}
+ addUserKnob {41 shadows.contrast l contrast T ColorCorrect1.shadows.contrast}
+ addUserKnob {41 shadows.contrast_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.shadows.contrast_panelDropped}
+ addUserKnob {41 shadows.gamma l gamma T ColorCorrect1.shadows.gamma}
+ addUserKnob {41 shadows.gamma_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.shadows.gamma_panelDropped}
+ addUserKnob {41 shadows.gain l gain T ColorCorrect1.shadows.gain}
+ addUserKnob {41 shadows.gain_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.shadows.gain_panelDropped}
+ addUserKnob {41 shadows.offset l offset T ColorCorrect1.shadows.offset}
+ addUserKnob {41 shadows.offset_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.shadows.offset_panelDropped}
+ addUserKnob {20 "" n -1}
+ addUserKnob {20 midtones l "@b;midtones" n 1}
+ midtones 0
+ addUserKnob {41 midtones.saturation_panelDropped l "panel dropped state" +HIDDEN T ColorCorrect1.midtones.saturation_panelDropped}
+ addUserKnob {41 midtones.contrast l contrast T ColorCorrect1.midtones.contrast}
+ addUserKnob {41 midtones.contrast_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.midtones.contrast_panelDropped}
+ addUserKnob {41 midtones.gamma l gamma T ColorCorrect1.midtones.gamma}
+ addUserKnob {41 midtones.gamma_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.midtones.gamma_panelDropped}
+ addUserKnob {41 midtones.gain l gain T ColorCorrect1.midtones.gain}
+ addUserKnob {41 midtones.gain_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.midtones.gain_panelDropped}
+ addUserKnob {41 midtones.offset l offset T ColorCorrect1.midtones.offset}
+ addUserKnob {41 midtones.offset_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.midtones.offset_panelDropped}
+ addUserKnob {20 "" n -1}
+ addUserKnob {20 highlights l "@b;highlights" n 1}
+ highlights 0
+ addUserKnob {41 highlights.saturation_panelDropped l "panel dropped state" +HIDDEN T ColorCorrect1.highlights.saturation_panelDropped}
+ addUserKnob {41 highlights.contrast l contrast T ColorCorrect1.highlights.contrast}
+ addUserKnob {41 highlights.contrast_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.highlights.contrast_panelDropped}
+ addUserKnob {41 highlights.gamma l gamma T ColorCorrect1.highlights.gamma}
+ addUserKnob {41 highlights.gamma_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.highlights.gamma_panelDropped}
+ addUserKnob {41 highlights.gain l gain T ColorCorrect1.highlights.gain}
+ addUserKnob {41 highlights.gain_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.highlights.gain_panelDropped}
+ addUserKnob {41 highlights.offset l offset T ColorCorrect1.highlights.offset}
+ addUserKnob {41 highlights.offset_panelDropped l "panel dropped state" -STARTLINE +HIDDEN T ColorCorrect1.highlights.offset_panelDropped}
+ addUserKnob {20 "" n -1}
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {26 signature l "" +STARTLINE T "<font color=#aaaaaa><font size=\"4\">Alpha Tweaker</font><font size=\"3\"> v1.0 - by Roger Armengol Martí</font>"}
+}
+ Input {
+  inputs 0
+  xpos -619
+  ypos 374
+ }
+ Expression {
+  expr3 r
+  name R
+  xpos -619
+  ypos 531
+  disable {{"parent.generateAlpha != 1 ? 1 : 0"}}
+ }
+ Expression {
+  expr3 g
+  name G
+  xpos -619
+  ypos 581
+  disable {{"parent.generateAlpha != 2 ? 1 : 0"}}
+ }
+ Expression {
+  expr3 b
+  name B
+  xpos -619
+  ypos 631
+  disable {{"parent.generateAlpha != 3 ? 1 : 0"}}
+ }
+ Expression {
+  expr3 (r+g+b)/3
+  name RGB
+  xpos -619
+  ypos 681
+  disable {{"parent.generateAlpha != 4 ? 1 : 0"}}
+ }
+ Dot {
+  name Dot2
+  xpos -585
+  ypos 1017
+ }
+set N3bb0c000 [stack 0]
+ Dot {
+  name Dot3
+  xpos -790
+  ypos 1017
+ }
+set N3bb0c400 [stack 0]
+ Dot {
+  name Dot4
+  xpos -1023
+  ypos 1017
+ }
+ Dot {
+  name Dot5
+  xpos -1023
+  ypos 1400
+ }
+push $N3bb0c000
+ FilterErode {
+  size {{parent.Dilate1.size}}
+  name FilterErode1
+  xpos -619
+  ypos 1145
+ }
+ FilterErode {
+  size {{parent.Dilate2.size}}
+  name FilterErode2
+  xpos -619
+  ypos 1207
+ }
+push $N3bb0c400
+ Dilate {
+  channels alpha
+  size {{-1*(parent.alphaExpand)}}
+  name Dilate1
+  xpos -824
+  ypos 1145
+ }
+ Dilate {
+  channels alpha
+  size {{parent.alphaExpand}}
+  name Dilate2
+  xpos -824
+  ypos 1207
+ }
+ Dot {
+  name Dot1
+  xpos -790
+  ypos 1307
+ }
+ Switch {
+  inputs 2
+  which {{parent.precisionMode}}
+  name Switch1
+  xpos -619
+  ypos 1304
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge1
+  xpos -619
+  ypos 1397
+  disable {{!parent.multiplyOnOff}}
+ }
+ ColorCorrect {
+  channels alpha
+  name ColorCorrect1
+  xpos -619
+  ypos 1504
+ }
+ Output {
+  name Output1
+  xpos -619
+  ypos 1839
+ }
+end_group

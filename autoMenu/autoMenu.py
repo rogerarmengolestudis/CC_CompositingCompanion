@@ -14,6 +14,10 @@ ICONS_DIR  = ccVars.ICONS_DIR
 TEMPLATES_DIR = ccVars.TEMPLATES_DIR
 GIZMOS_DIR = ccVars.GIZMOS_DIR
 
+
+
+
+
 # ///////////////////////////////////////////////////////////////////
 # Helpers
 # ///////////////////////////////////////////////////////////////////
@@ -23,8 +27,43 @@ def _icon(filename):
 
     path = os.path.join(ICONS_DIR, f"{filename}.png")
     print("[CC] Looking for icon: {}".format(path))
-    return path if os.path.isfile(path) else None
 
+    if path is None:
+        path = os.path.join(ICONS_DIR, "missingIcon.png")
+
+    return path
+
+def _label(raw_name):
+    """Convert a snake_case or CamelCase filename into a readable menu label"""
+    import re
+    words = re.sub(r"([A-Z])", r" \1", raw_name.replace("_", " ")).split()
+    return " ".join(w.capitalize() for w in words if w)
+ 
+ 
+def _load_template(path):
+    """Paste a .nk template into the current Nuke script at the viewer centre"""
+    nuke.nodePaste(path)
+ 
+ 
+def _load_gizmo(name):
+    """Create a gizmo node by class name (Nuke must have it on its plugin path)"""
+    nuke.createNode(name)
+ 
+ 
+
+
+
+
+# ////////////////////////////////////////////////////////////////////
+# Menu item factory
+# ////////////////////////////////////////////////////////////////////
+ 
+def _make_template_command(path):
+    return lambda p=path: _load_template(p)
+ 
+ 
+def _make_gizmo_command(name):
+    return lambda n=name: _load_gizmo(n)
 
     
 
@@ -62,14 +101,60 @@ class CCMenuBuilder:
 
         except Exception as e:
             nuke.message("[CC] Error when building menu: {}".format(e))
+            raise
+
+
 
     def _buildTemplatesMenu(self, parentMenu):
         """Build the "Templates" submenu"""
+        templatesMenu = parentMenu.addMenu("Templates", icon = _icon("templateIcon"))
+        self._scanDirectory(self.templatesDir, templatesMenu, ".nk", _make_template_command)
 
 
     
     def _buildGizmosMenu(self, parentMenu):
         """Build the "Gizmos" submenu"""
+        gizmosMenu = parentMenu.addMenu("Gizmos", icon = _icon("gizmoIcon"))
+        self._scanDirectory(self.gizmosDir, gizmosMenu, ".gizmo", _make_gizmo_command)
+        self._scanDirectory(self.gizmosDir, gizmosMenu, ".nk", _make_template_command)
+    
+
+
+    def _scanDirectory(self, directory, parentMenu, extension, commandFn):
+        """Scan directory and create sub menus and items"""
+        print("[CC] ---------------------------------------------------------------")
+        try:
+            entries = sorted(os.listdir(directory))
+        except OSError as e:
+            nuke.message("[CC] Error accessing directory '{}': {}".format(directory, e))
+            return
+        
+        for entry in entries:
+            path = os.path.join(directory, entry)
+            print("[CC] Scanning: {}".format(path))
+
+            if os.path.isdir(path):
+
+                # Get element basics
+                sub_label = _label(entry)
+                print(f"[CC] sub_label: {sub_label}")
+                sub_icon = _icon(entry)
+                print(f"[CC] sub_icon: {sub_icon}")
+
+                # Create Submenu and scan it recursively
+                sub_menu = parentMenu.addMenu(sub_label, icon=sub_icon)
+                self._scanDirectory(path, sub_menu, extension, commandFn)
+            
+            if os.path.isfile(path) and entry.lower().endswith(extension):
+                entry_name = entry[:-len(extension)]
+                print(f"[CC] entry_name: {entry_name}")
+                entry_label = _label(entry_name)
+                print(f"[CC] entry_label: {entry_label}")
+                entry_icon = _icon(entry_name)
+                print(f"[CC] entry_icon: {entry_icon}")
+
+                parentMenu.addCommand(entry_label, commandFn(path), icon=entry_icon)
+
 
 
 

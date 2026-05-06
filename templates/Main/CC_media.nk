@@ -1,0 +1,70 @@
+set cut_paste_input [stack 0]
+version 15.1 v2
+BackdropNode {
+ inputs 0
+ name BackdropNode54
+ tile_color 0x474747ff
+ label " MEDIA"
+ note_font_size 200
+ selected true
+ xpos -10563
+ ypos 16280
+ bdwidth 5702
+ bdheight 2128
+ z_order -2
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode55
+ tile_color 0x606060ff
+ label PreComp
+ note_font_size 100
+ selected true
+ xpos -6273
+ ypos 16560
+ bookmark false
+ bdwidth 1319
+ bdheight 1703
+ z_order -1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode56
+ tile_color 0x666666ff
+ label CG
+ note_font_size 100
+ selected true
+ xpos -10372
+ ypos 16555
+ bookmark false
+ bdwidth 4039
+ bdheight 914
+ z_order -1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode57
+ tile_color 0x606060ff
+ label Assets
+ note_font_size 100
+ selected true
+ xpos -8276
+ ypos 17539
+ bookmark false
+ bdwidth 1943
+ bdheight 726
+ z_order -1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode58
+ tile_color 0x5e5e5eff
+ label 2dFX
+ note_font_size 100
+ selected true
+ xpos -10379
+ ypos 17540
+ bookmark false
+ bdwidth 2035
+ bdheight 730
+}

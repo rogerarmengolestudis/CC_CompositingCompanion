@@ -1,0 +1,2226 @@
+set cut_paste_input [stack 0]
+version 15.1 v5
+BackdropNode {
+ inputs 0
+ name BackdropNode9
+ tile_color 0x606060ff
+ label AOVs
+ note_font_size 100
+ selected true
+ xpos 7192
+ ypos -1746
+ bdwidth 7196
+ bdheight 1982
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode15
+ tile_color 0x5e79a5ff
+ label specular
+ note_font_size 42
+ selected true
+ xpos 11903
+ ypos -1551
+ bookmark false
+ bdwidth 898
+ bdheight 1199
+ z_order 1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode16
+ tile_color 0x5e79a5ff
+ label "transmission\n"
+ note_font_size 42
+ selected true
+ xpos 10864
+ ypos -1551
+ bookmark false
+ bdwidth 898
+ bdheight 1199
+ z_order 1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode24
+ tile_color 0x5e79a5ff
+ label "SSS\n"
+ note_font_size 42
+ selected true
+ xpos 9825
+ ypos -1551
+ bookmark false
+ bdwidth 898
+ bdheight 1199
+ z_order 1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode25
+ tile_color 0x5e7aa5ff
+ label "emission\n"
+ note_font_size 42
+ selected true
+ xpos 7308
+ ypos -1552
+ bookmark false
+ bdwidth 298
+ bdheight 1200
+ z_order 1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode27
+ tile_color 0x5e79a5ff
+ label diffuse
+ note_font_size 42
+ selected true
+ xpos 12942
+ ypos -1551
+ bookmark false
+ bdwidth 898
+ bdheight 1199
+ z_order 1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode35
+ tile_color 0x5e79a5ff
+ label "Coat\n"
+ note_font_size 42
+ selected true
+ xpos 8786
+ ypos -1551
+ bookmark false
+ bdwidth 898
+ bdheight 1199
+ z_order 1
+}
+BackdropNode {
+ inputs 0
+ name BackdropNode36
+ tile_color 0x5e79a5ff
+ label "Sheen\n"
+ note_font_size 42
+ selected true
+ xpos 7747
+ ypos -1551
+ bookmark false
+ bdwidth 898
+ bdheight 1199
+ z_order 1
+}
+push $cut_paste_input
+NoOp {
+ name READ_AOVs
+ selected true
+ xpos 14089
+ ypos -2261
+}
+Dot {
+ name Dot42
+ selected true
+ xpos 14123
+ ypos -2108
+}
+set Nba23b000 [stack 0]
+Group {
+ name AOVs_Corrector
+ tile_color 0x84bf9dff
+ selected true
+ xpos 14089
+ ypos -1508
+ addUserKnob {20 Settings}
+ addUserKnob {4 RenderEngine l "Render Engine" t "Wich render engine has been aplied to render.\n\n\n\n\nMaya ARNOLD\n     - Default render arnold\n     - No changes applied on the naming of AOVs\n\nMaya RENDERMAN\n     - NOT SUPERTED\n\n\n\nHoudini ARNOLD\n     - NOT SUPORTED\n\nHoudini KARMA\n     - NOT SUPORTED\n\n\n\nBlender CYCLES\n     - Default render cycples\n     - No changes applied on the namings of AOVs\n\nBlender EEVEE\n     - NOT SUPORTED\n\nBlender RENDERMAN\n     - NOT SUPORTED" M {"Maya ARNOLD" "Maya RENDERMAN" "Houdini ARNOLD" "Houdini KARMA" "Blender CYCLES" "Blender EEVEE" "Blender RENDERMAN" "" "" ""}}
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode1
+  tile_color 0x3c434fff
+  label "Maya ARNOLD"
+  note_font_size 200
+  xpos -85374
+  ypos -4876
+  bookmark false
+  bdwidth 4340
+  bdheight 6842
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode2
+  tile_color 0x61929bff
+  label "Maya RENDERMAN"
+  note_font_size 200
+  xpos -80405
+  ypos -4894
+  bookmark false
+  bdwidth 11111
+  bdheight 6648
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode3
+  tile_color 0x4d412dff
+  label "Houdini ARNOLD"
+  note_font_size 200
+  xpos -68506
+  ypos -4947
+  bookmark false
+  bdwidth 14438
+  bdheight 6489
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode4
+  tile_color 0x604b28ff
+  label "Houdini KARMA"
+  note_font_size 200
+  xpos -53313
+  ypos -4941
+  bookmark false
+  bdwidth 14276
+  bdheight 6329
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode5
+  tile_color 0x38313eff
+  label "Blender CYCLES"
+  note_font_size 200
+  xpos -38507
+  ypos -4941
+  bookmark false
+  bdwidth 14289
+  bdheight 6205
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode6
+  tile_color 0x5a3c5cff
+  label "Blender EEVEE"
+  note_font_size 200
+  xpos -23741
+  ypos -4935
+  bookmark false
+  bdwidth 12911
+  bdheight 6037
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode7
+  tile_color 0x314b35ff
+  label "Blender RENDERMAN"
+  note_font_size 200
+  xpos -10653
+  ypos -4937
+  bookmark false
+  bdwidth 11216
+  bdheight 5880
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode35
+  tile_color 0x7192c6ff
+  label glossy
+  note_font_size 42
+  xpos -26839
+  ypos -3824
+  appearance Border
+  bdwidth 780
+  bdheight 338
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode36
+  tile_color 0x7192c6ff
+  label "transmission\n"
+  note_font_size 42
+  xpos -27839
+  ypos -3825
+  appearance Border
+  bdwidth 811
+  bdheight 336
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode39
+  tile_color 0x7192c6ff
+  label diffuse
+  note_font_size 42
+  xpos -25839
+  ypos -3824
+  appearance Border
+  bdwidth 796
+  bdheight 342
+  z_order 1
+ }
+ Dot {
+  inputs 0
+  name Dot5
+  xpos -24819
+  ypos -3936
+ }
+set Nba99b000 [stack 0]
+ Dot {
+  name Dot4
+  xpos -25146
+  ypos -3936
+ }
+ Dot {
+  name Dot161
+  xpos -25146
+  ypos -3731
+ }
+set Nba99b800 [stack 0]
+ Dot {
+  name Dot162
+  xpos -25446
+  ypos -3731
+ }
+set Nba99bc00 [stack 0]
+ Dot {
+  name Dot163
+  xpos -25746
+  ypos -3731
+ }
+set Nba9c8000 [stack 0]
+ Dot {
+  name Dot164
+  xpos -26146
+  ypos -3731
+ }
+set Nba9c8400 [stack 0]
+ Dot {
+  name Dot165
+  xpos -26446
+  ypos -3731
+ }
+set Nba9c8800 [stack 0]
+ Dot {
+  name Dot166
+  xpos -26746
+  ypos -3731
+ }
+set Nba9c8c00 [stack 0]
+ Dot {
+  name Dot167
+  xpos -27146
+  ypos -3731
+ }
+set Nba9c9000 [stack 0]
+ Dot {
+  name Dot168
+  xpos -27446
+  ypos -3731
+ }
+set Nba9c9400 [stack 0]
+add_layer {Diffuse_Color Diffuse_Color.red Diffuse_Color.green Diffuse_Color.blue Diffuse_Color.alpha}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Diffuse_Color
+  fromInput2 {{0} B}
+  mappings "4 Diffuse_Color.red 0 0 rgba.red 0 0 Diffuse_Color.green 0 1 rgba.green 0 1 Diffuse_Color.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle62
+  label "\[value in1]"
+  xpos -27480
+  ypos -3640
+ }
+ Dot {
+  name Dot3
+  xpos -27446
+  ypos -3575
+ }
+set Nba9c9c00 [stack 0]
+push $Nba9c9400
+ Dot {
+  name Dot169
+  xpos -27746
+  ypos -3731
+ }
+add_layer {Transmission_Direct Transmission_Direct.red Transmission_Direct.green Transmission_Direct.blue Transmission_Direct.alpha}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Transmission_Direct
+  fromInput2 {{0} B}
+  mappings "4 Transmission_Direct.red 0 0 rgba.red 0 0 Transmission_Direct.green 0 1 rgba.green 0 1 Transmission_Direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle61
+  label "\[value in1]"
+  xpos -27780
+  ypos -3640
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge6
+  xpos -27780
+  ypos -3578
+ }
+ Dot {
+  name Dot11
+  xpos -27746
+  ypos -3011
+ }
+push $Nba9c9c00
+push $Nba9c9000
+add_layer {Transmission_Indirect Transmission_Indirect.red Transmission_Indirect.green Transmission_Indirect.blue Transmission_Indirect.alpha}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Transmission_Indirect
+  fromInput2 {{0} B}
+  mappings "4 Transmission_Indirect.red 0 0 rgba.red 0 0 Transmission_Indirect.green 0 1 rgba.green 0 1 Transmission_Indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle65
+  label "\[value in1]"
+  xpos -27180
+  ypos -3640
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge5
+  xpos -27180
+  ypos -3578
+ }
+ Dot {
+  name Dot10
+  xpos -27146
+  ypos -3073
+ }
+push $Nba9c8800
+add_layer {Glossy_Color Glossy_Color.red Glossy_Color.green Glossy_Color.blue Glossy_Color.alpha}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Glossy_Color
+  fromInput2 {{0} B}
+  mappings "4 Glossy_Color.red 0 0 rgba.red 0 0 Glossy_Color.green 0 1 rgba.green 0 1 Glossy_Color.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle67
+  label "\[value in1]"
+  xpos -26480
+  ypos -3640
+ }
+ Dot {
+  name Dot2
+  xpos -26446
+  ypos -3578
+ }
+set Nba812000 [stack 0]
+push $Nba9c8c00
+add_layer {Glossy_Direct Glossy_Direct.red Glossy_Direct.green Glossy_Direct.blue Glossy_Direct.alpha}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Glossy_Direct
+  fromInput2 {{0} B}
+  mappings "4 Glossy_Direct.red 0 0 rgba.red 0 0 Glossy_Direct.green 0 1 rgba.green 0 1 Glossy_Direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle66
+  label "\[value in1]"
+  xpos -26780
+  ypos -3643
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge4
+  xpos -26780
+  ypos -3581
+ }
+ Dot {
+  name Dot9
+  xpos -26746
+  ypos -3183
+ }
+push $Nba812000
+push $Nba9c8400
+add_layer {Glossy_Indirect Glossy_Indirect.red Glossy_Indirect.green Glossy_Indirect.blue Glossy_Indirect.alpha}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Glossy_Indirect
+  fromInput2 {{0} B}
+  mappings "4 Glossy_Indirect.red 0 0 rgba.red 0 0 Glossy_Indirect.green 0 1 rgba.green 0 1 Glossy_Indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle68
+  label "\[value in1]"
+  xpos -26180
+  ypos -3640
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge3
+  xpos -26180
+  ypos -3581
+ }
+ Dot {
+  name Dot8
+  xpos -26146
+  ypos -3245
+ }
+push $Nba99bc00
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Diffuse_Color
+  fromInput2 {{0} B}
+  mappings "4 Diffuse_Color.red 0 0 rgba.red 0 0 Diffuse_Color.green 0 1 rgba.green 0 1 Diffuse_Color.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle70
+  label "\[value in1]"
+  xpos -25480
+  ypos -3640
+ }
+ Dot {
+  name Dot1
+  xpos -25446
+  ypos -3578
+ }
+set Nba840000 [stack 0]
+push $Nba9c8000
+add_layer {Diffuse_Direct Diffuse_Direct.red Diffuse_Direct.green Diffuse_Direct.blue Diffuse_Direct.alpha}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Diffuse_Direct
+  fromInput2 {{0} B}
+  mappings "4 Diffuse_Direct.red 0 0 rgba.red 0 0 Diffuse_Direct.green 0 1 rgba.green 0 1 Diffuse_Direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle69
+  label "\[value in1]"
+  xpos -25780
+  ypos -3640
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge2
+  xpos -25780
+  ypos -3581
+ }
+ Dot {
+  name Dot7
+  xpos -25746
+  ypos -3361
+ }
+push $Nba840000
+push $Nba99b800
+add_layer {Diffuse_Indirect Diffuse_Indirect.red Diffuse_Indirect.green Diffuse_Indirect.blue Diffuse_Indirect.alpha}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Diffuse_Indirect
+  fromInput2 {{0} B}
+  mappings "4 Diffuse_Indirect.red 0 0 rgba.red 0 0 Diffuse_Indirect.green 0 1 rgba.green 0 1 Diffuse_Indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle71
+  label "\[value in1]"
+  xpos -25180
+  ypos -3640
+ }
+ Merge2 {
+  inputs 2
+  operation multiply
+  name Merge1
+  xpos -25180
+  ypos -3581
+ }
+ Dot {
+  name Dot6
+  xpos -25146
+  ypos -3423
+ }
+push $Nba99b000
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{1} B A}
+  out1 Diffuse_Indirect
+  fromInput2 {{1} B A}
+  mappings "4 rgba.red 0 0 Diffuse_Indirect.red 0 0 rgba.green 0 1 Diffuse_Indirect.green 0 1 rgba.blue 0 2 Diffuse_Indirect.blue 0 2 rgba.alpha 0 3 Diffuse_Indirect.alpha 0 3"
+  name Shuffle1
+  label Diffuse_Indirect
+  xpos -24853
+  ypos -3432
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{1} B A}
+  out1 Diffuse_Direct
+  fromInput2 {{1} B A}
+  mappings "4 rgba.red 0 0 Diffuse_Direct.red 0 0 rgba.green 0 1 Diffuse_Direct.green 0 1 rgba.blue 0 2 Diffuse_Direct.blue 0 2 black -1 -1 Diffuse_Direct.alpha 0 3"
+  name Shuffle2
+  label Diffuse_Direct
+  xpos -24853
+  ypos -3370
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{1} B A}
+  out1 Glossy_Indirect
+  fromInput2 {{0} B A}
+  mappings "4 rgba.red 0 0 Glossy_Indirect.red 0 0 rgba.green 0 1 Glossy_Indirect.green 0 1 rgba.blue 0 2 Glossy_Indirect.blue 0 2 black -1 -1 Glossy_Indirect.alpha 0 3"
+  name Shuffle3
+  label Glossy_Indirect
+  xpos -24853
+  ypos -3254
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{1} B A}
+  out1 Glossy_Direct
+  fromInput2 {{0} B A}
+  mappings "4 rgba.red 0 0 Glossy_Direct.red 0 0 rgba.green 0 1 Glossy_Direct.green 0 1 rgba.blue 0 2 Glossy_Direct.blue 0 2 black -1 -1 Glossy_Direct.alpha 0 3"
+  name Shuffle4
+  label GLossy_Direct
+  xpos -24853
+  ypos -3192
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{1} B A}
+  out1 Transmission_Indirect
+  fromInput2 {{0} B A}
+  mappings "4 rgba.red 0 0 Transmission_Indirect.red 0 0 rgba.green 0 1 Transmission_Indirect.green 0 1 rgba.blue 0 2 Transmission_Indirect.blue 0 2 black -1 -1 Transmission_Indirect.alpha 0 3"
+  name Shuffle5
+  label Transmission_Indirect
+  xpos -24853
+  ypos -3082
+ }
+ Shuffle2 {
+  inputs 2
+  fromInput1 {{1} B A}
+  out1 Transmission_Direct
+  fromInput2 {{0} B A}
+  mappings "4 rgba.red 0 0 Transmission_Direct.red 0 0 rgba.green 0 1 Transmission_Direct.green 0 1 rgba.blue 0 2 Transmission_Direct.blue 0 2 black -1 -1 Transmission_Direct.alpha 0 3"
+  name Shuffle6
+  label Transmission_Direct
+  xpos -24853
+  ypos -3020
+ }
+ Dot {
+  name Dot14
+  xpos -24819
+  ypos -2292
+ }
+ Viewer {
+  inputs 0
+  frame_range 1001-2991
+  input_number 1
+  gain 8.2
+  monitorOutNDISenderName "NukeX - compoBuilderNodesGeneral - Viewer1"
+  name Viewer1
+  xpos -24997
+  ypos -3489
+ }
+ Input {
+  inputs 0
+  name Input
+  xpos 4870
+  ypos -5100
+ }
+ Dot {
+  name Dot13
+  xpos 4904
+  ypos -4479
+ }
+ Dot {
+  name Dot12
+  xpos 451
+  ypos -4479
+ }
+set N23e20000 [stack 0]
+ Dot {
+  name Dot33
+  xpos 451
+  ypos 831
+ }
+ Dot {
+  name Dot34
+  xpos 4059
+  ypos 831
+ }
+push $N23e20000
+ Dot {
+  name Dot30
+  xpos -10942
+  ypos -4479
+ }
+set N22725400 [stack 0]
+ Dot {
+  name Dot31
+  xpos -10942
+  ypos 989
+ }
+ Dot {
+  name Dot32
+  xpos 4059
+  ypos 989
+ }
+push $N22725400
+ Dot {
+  name Dot27
+  xpos -24330
+  ypos -4479
+ }
+set N22724800 [stack 0]
+ Dot {
+  name Dot28
+  xpos -24330
+  ypos 1150
+ }
+ Dot {
+  name Dot29
+  xpos 4059
+  ypos 1150
+ }
+push $N22724800
+ Dot {
+  name Dot24
+  xpos -39381
+  ypos -4479
+ }
+set N6c943800 [stack 0]
+ Dot {
+  name Dot25
+  xpos -39381
+  ypos 1298
+ }
+ Dot {
+  name Dot26
+  xpos 4059
+  ypos 1298
+ }
+push $N6c943800
+ Dot {
+  name Dot20
+  xpos -54412
+  ypos -4479
+ }
+set N6c942800 [stack 0]
+ Dot {
+  name Dot22
+  xpos -54412
+  ypos 1453
+ }
+ Dot {
+  name Dot23
+  xpos 4059
+  ypos 1453
+ }
+push $N6c942800
+ Dot {
+  name Dot16
+  xpos -69367
+  ypos -4479
+ }
+set N6c70fc00 [stack 0]
+ Dot {
+  name Dot18
+  xpos -69367
+  ypos 1658
+ }
+ Dot {
+  name Dot19
+  xpos 4059
+  ypos 1658
+ }
+push $N6c70fc00
+ Dot {
+  name Dot15
+  xpos -81432
+  ypos -4479
+ }
+add_layer {diffuse_albedo diffuse_albedo.red diffuse_albedo.green diffuse_albedo.blue}
+add_layer {albedo albedo.red albedo.green albedo.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 diffuse_albedo
+  out1 albedo
+  fromInput2 {{0} B}
+  mappings "3 diffuse_albedo.red 0 0 albedo.red 0 0 diffuse_albedo.green 0 1 albedo.green 0 1 diffuse_albedo.blue 0 2 albedo.blue 0 2"
+  name Shuffle7
+  label "\[value in1]"
+  xpos -81462
+  ypos -4136
+ }
+ Dot {
+  name Dot17
+  xpos -81432
+  ypos 1827
+ }
+ Dot {
+  name Dot21
+  xpos 4059
+  ypos 1827
+ }
+ Switch {
+  inputs 7
+  name Switch1
+  xpos 4657
+  ypos 1711
+ }
+ Output {
+  name Output1
+  xpos 4657
+  ypos 2703
+ }
+end_group
+Dot {
+ name Dot194
+ selected true
+ xpos 14123
+ ypos -1458
+}
+set Nba99a400 [stack 0]
+Group {
+ name Beauty_Checker
+ tile_color 0x83be9cff
+ selected true
+ xpos 14089
+ ypos -1414
+ addUserKnob {20 Settings}
+ addUserKnob {4 RenderEngine l "Render Engine" t "Wich render engine has been aplied to render.\n\n\n\n\nMaya ARNOLD\n     - Default render arnold\n     - No changes applied on the naming of AOVs\n\nMaya RENDERMAN\n     - NOT SUPERTED\n\n\n\nHoudini ARNOLD\n     - NOT SUPORTED\n\nHoudini KARMA\n     - NOT SUPORTED\n\n\n\nBlender CYCLES\n     - Default render cycples\n     - No changes applied on the namings of AOVs\n\nBlender EEVEE\n     - NOT SUPORTED\n\nBlender RENDERMAN\n     - NOT SUPORTED" M {"Maya ARNOLD" "Maya RENDERMAN" "Houdini ARNOLD" "Houdini KARMA" "Blender CYCLES" "Blender EEVEE" "Blender RENDERMAN" "" "" "" "" "" "" "" "" "" "" "" ""}}
+ addUserKnob {6 Diffuse +STARTLINE}
+ Diffuse true
+ addUserKnob {6 Specular +STARTLINE}
+ Specular true
+ addUserKnob {6 Transmission +STARTLINE}
+ Transmission true
+ addUserKnob {6 SSS +STARTLINE}
+ SSS true
+ addUserKnob {6 Coat +STARTLINE}
+ Coat true
+ addUserKnob {6 Sheen +STARTLINE}
+ Sheen true
+ addUserKnob {6 Emission +STARTLINE}
+ Emission true
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode35
+  note_font_size 100
+  xpos -1773
+  ypos -913
+  appearance Border
+  bdwidth 4402
+  bdheight 1268
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode1
+  tile_color 0x7192c6ff
+  label "sss\n"
+  note_font_size 42
+  xpos -50
+  ypos -849
+  appearance Border
+  bdwidth 622
+  bdheight 292
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode2
+  tile_color 0x7192c6ff
+  label "coat\n"
+  note_font_size 42
+  xpos -731
+  ypos -849
+  appearance Border
+  bdwidth 622
+  bdheight 292
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode3
+  tile_color 0x7192c6ff
+  label "sheen\n"
+  note_font_size 42
+  xpos -1375
+  ypos -847
+  appearance Border
+  bdwidth 622
+  bdheight 292
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode36
+  tile_color 0x7192c6ff
+  label glossy
+  note_font_size 42
+  xpos 1302
+  ypos -848
+  appearance Border
+  bdwidth 599
+  bdheight 286
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode37
+  tile_color 0x7192c6ff
+  label "transmission\n"
+  note_font_size 42
+  xpos 622
+  ypos -849
+  appearance Border
+  bdwidth 622
+  bdheight 292
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode39
+  tile_color 0x7192c6ff
+  label "emission\n"
+  note_font_size 42
+  xpos -1683
+  ypos -848
+  appearance Border
+  bdwidth 256
+  bdheight 298
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode40
+  tile_color 0x7192c6ff
+  label diffuse
+  note_font_size 42
+  xpos 1948
+  ypos -848
+  appearance Border
+  bdwidth 630
+  bdheight 288
+  z_order 1
+ }
+ Input {
+  inputs 0
+  name Input
+  xpos 2777
+  ypos -2146
+ }
+ Dot {
+  name Dot164
+  xpos 2811
+  ypos -755
+ }
+set Nba527400 [stack 0]
+ Dot {
+  name Dot165
+  xpos 2373
+  ypos -755
+ }
+set Nba527800 [stack 0]
+ Dot {
+  name Dot166
+  xpos 2073
+  ypos -755
+ }
+set Nba527c00 [stack 0]
+ Dot {
+  name Dot168
+  xpos 1706
+  ypos -755
+ }
+set Nba574400 [stack 0]
+ Dot {
+  name Dot169
+  xpos 1406
+  ypos -755
+ }
+set Nba574800 [stack 0]
+ Dot {
+  name Dot176
+  xpos 1069
+  ypos -755
+ }
+set Nba575000 [stack 0]
+ Dot {
+  name Dot177
+  xpos 769
+  ypos -755
+ }
+set Nba575400 [stack 0]
+ Dot {
+  name Dot2
+  xpos 397
+  ypos -755
+ }
+set N6b544c00 [stack 0]
+ Dot {
+  name Dot3
+  xpos 97
+  ypos -755
+ }
+set N6b545000 [stack 0]
+ Dot {
+  name Dot5
+  xpos -284
+  ypos -755
+ }
+set N713a6800 [stack 0]
+ Dot {
+  name Dot6
+  xpos -584
+  ypos -755
+ }
+set N713a6c00 [stack 0]
+ Dot {
+  name Dot8
+  xpos -928
+  ypos -753
+ }
+set N22ddac00 [stack 0]
+ Dot {
+  name Dot10
+  xpos -1228
+  ypos -753
+ }
+set N22ddb000 [stack 0]
+ Dot {
+  name Dot181
+  xpos -1590
+  ypos -755
+ }
+add_layer {emission emission.red emission.green emission.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 emission
+  fromInput2 {{0} B}
+  mappings "4 emission.red 0 0 rgba.red 0 0 emission.green 0 1 rgba.green 0 1 emission.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle13
+  label "\[value in1]"
+  xpos -1624
+  ypos -664
+ }
+set Nba58c800 [stack 0]
+ Dot {
+  name Dot182
+  xpos -1590
+  ypos 115
+ }
+push $N22ddb000
+add_layer {sheen_direct sheen_direct.red sheen_direct.green sheen_direct.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 sheen_direct
+  fromInput2 {{0} B}
+  mappings "4 sheen_direct.red 0 0 rgba.red 0 0 sheen_direct.green 0 1 rgba.green 0 1 sheen_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle6
+  label "\[value in1]"
+  xpos -1262
+  ypos -662
+ }
+ Dot {
+  name Dot11
+  xpos -1228
+  ypos -495
+ }
+push $N22ddac00
+add_layer {sheen_indirect sheen_indirect.red sheen_indirect.green sheen_indirect.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 sheen_indirect
+  fromInput2 {{0} B}
+  mappings "4 sheen_indirect.red 0 0 rgba.red 0 0 sheen_indirect.green 0 1 rgba.green 0 1 sheen_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle7
+  label "\[value in1]"
+  xpos -962
+  ypos -663
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge5
+  xpos -962
+  ypos -498
+ }
+ Dot {
+  name Dot12
+  xpos -928
+  ypos 46
+ }
+push $N713a6c00
+add_layer {coat_direct coat_direct.red coat_direct.green coat_direct.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 coat_direct
+  fromInput2 {{0} B}
+  mappings "4 coat_direct.red 0 0 rgba.red 0 0 coat_direct.green 0 1 rgba.green 0 1 coat_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle4
+  label "\[value in1]"
+  xpos -618
+  ypos -664
+ }
+ Dot {
+  name Dot7
+  xpos -584
+  ypos -497
+ }
+push $N713a6800
+add_layer {coat_indirect coat_indirect.red coat_indirect.green coat_indirect.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 coat_indirect
+  fromInput2 {{0} B}
+  mappings "4 coat_indirect.red 0 0 rgba.red 0 0 coat_indirect.green 0 1 rgba.green 0 1 coat_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle5
+  label "\[value in1]"
+  xpos -318
+  ypos -664
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge3
+  xpos -318
+  ypos -500
+ }
+ Dot {
+  name Dot9
+  xpos -284
+  ypos -22
+ }
+push $N6b545000
+add_layer {sss_direct sss_direct.red sss_direct.green sss_direct.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 sss_direct
+  fromInput2 {{0} B}
+  mappings "4 sss_direct.red 0 0 rgba.red 0 0 sss_direct.green 0 1 rgba.green 0 1 sss_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle2
+  label "\[value in1]"
+  xpos 63
+  ypos -664
+ }
+ Dot {
+  name Dot4
+  xpos 97
+  ypos -495
+ }
+push $N6b544c00
+add_layer {sss_indirect sss_indirect.red sss_indirect.green sss_indirect.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 sss_indirect
+  fromInput2 {{0} B}
+  mappings "4 sss_indirect.red 0 0 rgba.red 0 0 sss_indirect.green 0 1 rgba.green 0 1 sss_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle3
+  label "\[value in1]"
+  xpos 363
+  ypos -664
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge2
+  xpos 363
+  ypos -498
+ }
+ Dot {
+  name Dot184
+  xpos 397
+  ypos -91
+ }
+push $Nba575400
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Transmission_Direct
+  fromInput2 {{0} B}
+  mappings "4 Transmission_Direct.red 0 0 rgba.red 0 0 Transmission_Direct.green 0 1 rgba.green 0 1 Transmission_Direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle61
+  label "\[value in1]"
+  xpos 735
+  ypos -664
+ }
+ Dot {
+  name Dot186
+  xpos 769
+  ypos -497
+ }
+push $Nba575000
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Transmission_Indirect
+  fromInput2 {{0} B}
+  mappings "4 Transmission_Indirect.red 0 0 rgba.red 0 0 Transmission_Indirect.green 0 1 rgba.green 0 1 Transmission_Indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle62
+  label "\[value in1]"
+  xpos 1035
+  ypos -664
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge13
+  xpos 1035
+  ypos -500
+ }
+ Dot {
+  name Dot187
+  xpos 1069
+  ypos -160
+ }
+push $Nba574800
+add_layer {specular_direct specular_direct.red specular_direct.green specular_direct.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 specular_direct
+  fromInput2 {{0} B}
+  mappings "4 specular_direct.red 0 0 rgba.red 0 0 specular_direct.green 0 1 rgba.green 0 1 specular_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle66
+  label "\[value in1]"
+  xpos 1372
+  ypos -664
+ }
+ Dot {
+  name Dot189
+  xpos 1406
+  ypos -497
+ }
+push $Nba574400
+add_layer {specular_indirect specular_indirect.red specular_indirect.green specular_indirect.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 specular_indirect
+  fromInput2 {{0} B}
+  mappings "4 specular_indirect.red 0 0 rgba.red 0 0 specular_indirect.green 0 1 rgba.green 0 1 specular_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle67
+  label "\[value in1]"
+  xpos 1672
+  ypos -664
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge78
+  xpos 1672
+  ypos -500
+ }
+ Dot {
+  name Dot190
+  xpos 1706
+  ypos -228
+ }
+push $Nba527c00
+add_layer {diffuse_direct diffuse_direct.red diffuse_direct.green diffuse_direct.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 diffuse_direct
+  fromInput2 {{0} B}
+  mappings "4 diffuse_direct.red 0 0 rgba.red 0 0 diffuse_direct.green 0 1 rgba.green 0 1 diffuse_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle69
+  label "\[value in1]"
+  xpos 2039
+  ypos -664
+ }
+ Dot {
+  name Dot192
+  xpos 2073
+  ypos -497
+ }
+push $Nba527800
+add_layer {diffuse_indirect diffuse_indirect.red diffuse_indirect.green diffuse_indirect.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 diffuse_indirect
+  fromInput2 {{0} B}
+  mappings "4 diffuse_indirect.red 0 0 rgba.red 0 0 diffuse_indirect.green 0 1 rgba.green 0 1 diffuse_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle70
+  label "\[value in1]"
+  xpos 2339
+  ypos -664
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge80
+  xpos 2339
+  ypos -500
+ }
+ Dot {
+  name Dot1
+  xpos 2373
+  ypos -297
+ }
+push 0
+ Merge2 {
+  inputs 2
+  mix {{parent.Diffuse}}
+  name Diffuse
+  xpos 2456
+  ypos -300
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  mix {{parent.Specular}}
+  name Specular
+  xpos 2456
+  ypos -231
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  mix {{parent.Transmission}}
+  name Transmission
+  xpos 2456
+  ypos -163
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  mix {{parent.SSS}}
+  name SSS
+  xpos 2456
+  ypos -94
+ }
+ Merge2 {
+  inputs 2
+  mix {{parent.Coat}}
+  name coat
+  xpos 2456
+  ypos -25
+ }
+ Merge2 {
+  inputs 2
+  mix {{parent.Sheen}}
+  name sheen
+  xpos 2456
+  ypos 43
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  mix {{parent.Emission}}
+  name Emission
+  xpos 2456
+  ypos 112
+ }
+ Dot {
+  name Dot193
+  xpos 2490
+  ypos 528
+ }
+push $Nba527400
+ Shuffle2 {
+  fromInput1 {{0} B}
+  fromInput2 {{0} B}
+  name Shuffle1
+  label "\[value in1]"
+  xpos 2777
+  ypos -656
+ }
+ Merge2 {
+  inputs 2
+  operation from
+  name Merge1
+  xpos 2777
+  ypos 525
+ }
+ Output {
+  name Output1
+  xpos 2777
+  ypos 2081
+ }
+push $Nba58c800
+push 0
+ Viewer {
+  inputs 2
+  frame_range 1001-2991
+  input_number 1
+  monitorOutNDISenderName "NukeX - compoBuilderNodesGeneral - Viewer1"
+  monitorOutOutputTransform rec709
+  name Viewer1
+  xpos 2539
+  ypos 774
+ }
+end_group
+push $Nba99a400
+Dot {
+ name Dot46
+ selected true
+ xpos 13635
+ ypos -1458
+}
+set Nba68c400 [stack 0]
+Dot {
+ name Dot44
+ selected true
+ xpos 13335
+ ypos -1458
+}
+set Nba68c800 [stack 0]
+Dot {
+ name Dot45
+ selected true
+ xpos 13035
+ ypos -1458
+}
+set Nba68cc00 [stack 0]
+Dot {
+ name Dot48
+ selected true
+ xpos 12596
+ ypos -1458
+}
+set Nba68d000 [stack 0]
+Dot {
+ name Dot49
+ selected true
+ xpos 12296
+ ypos -1458
+}
+set Nba68d400 [stack 0]
+Dot {
+ name Dot50
+ selected true
+ xpos 11996
+ ypos -1458
+}
+set Nba68d800 [stack 0]
+Dot {
+ name Dot78
+ selected true
+ xpos 11557
+ ypos -1457
+}
+set Nba68dc00 [stack 0]
+Dot {
+ name Dot79
+ selected true
+ xpos 11257
+ ypos -1457
+}
+set Nba6a8000 [stack 0]
+Dot {
+ name Dot80
+ selected true
+ xpos 10957
+ ypos -1457
+}
+set Nba6a8400 [stack 0]
+Dot {
+ name Dot43
+ selected true
+ xpos 10518
+ ypos -1457
+}
+set Nb852d000 [stack 0]
+Dot {
+ name Dot84
+ selected true
+ xpos 10218
+ ypos -1457
+}
+set Nb852d400 [stack 0]
+Dot {
+ name Dot163
+ selected true
+ xpos 9918
+ ypos -1457
+}
+set Nb8b44800 [stack 0]
+Dot {
+ name Dot166
+ selected true
+ xpos 9479
+ ypos -1457
+}
+set N22131000 [stack 0]
+Dot {
+ name Dot167
+ selected true
+ xpos 9179
+ ypos -1457
+}
+set N22131400 [stack 0]
+Dot {
+ name Dot175
+ selected true
+ xpos 8879
+ ypos -1457
+}
+set N6b186400 [stack 0]
+Dot {
+ name Dot178
+ selected true
+ xpos 8440
+ ypos -1457
+}
+set N6b58ac00 [stack 0]
+Dot {
+ name Dot179
+ selected true
+ xpos 8140
+ ypos -1457
+}
+set N6b58b000 [stack 0]
+Dot {
+ name Dot182
+ selected true
+ xpos 7840
+ ypos -1457
+}
+set N6bae6000 [stack 0]
+Dot {
+ name Dot109
+ selected true
+ xpos 7401
+ ypos -1458
+}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 emission
+ fromInput2 {{0} B}
+ mappings "4 emission.red 0 0 rgba.red 0 0 emission.green 0 1 rgba.green 0 1 emission.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle49
+ label "\[value in1]"
+ selected true
+ xpos 7367
+ ypos -1368
+}
+Dot {
+ name Dot118
+ selected true
+ xpos 7401
+ ypos 129
+}
+push $N6b58b000
+add_layer {sheen_albedo sheen_albedo.red sheen_albedo.green sheen_albedo.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 sheen_albedo
+ fromInput2 {{0} B}
+ mappings "4 sheen_albedo.red 0 0 rgba.red 0 0 sheen_albedo.green 0 1 rgba.green 0 1 sheen_albedo.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle61
+ label "\[value in1]"
+ selected true
+ xpos 8106
+ ypos -1367
+}
+Dot {
+ name Dot180
+ selected true
+ xpos 8140
+ ypos -1261
+}
+set N6b58b800 [stack 0]
+Dot {
+ name Dot181
+ selected true
+ xpos 8140
+ ypos -419
+}
+set N6b58bc00 [stack 0]
+push $N6bae6000
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 sheen_direct
+ fromInput2 {{0} B}
+ mappings "4 sheen_direct.red 0 0 rgba.red 0 0 sheen_direct.green 0 1 rgba.green 0 1 sheen_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle62
+ label "\[value in1]"
+ selected true
+ xpos 7806
+ ypos -1366
+}
+push $N6b58b800
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge83
+ selected true
+ xpos 7806
+ ypos -1264
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge84
+ selected true
+ xpos 7806
+ ypos -422
+}
+Dot {
+ name Dot183
+ selected true
+ xpos 7840
+ ypos -372
+}
+push $N6b58bc00
+push $N6b58ac00
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 sheen_indirect
+ fromInput2 {{0} B}
+ mappings "4 sheen_indirect.red 0 0 rgba.red 0 0 sheen_indirect.green 0 1 rgba.green 0 1 sheen_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle65
+ label "\[value in1]"
+ selected true
+ xpos 8406
+ ypos -1366
+}
+push $N6b58b800
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge85
+ selected true
+ xpos 8406
+ ypos -1264
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge86
+ selected true
+ xpos 8406
+ ypos -422
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge87
+ selected true
+ xpos 8406
+ ypos -375
+}
+Dot {
+ name Dot184
+ selected true
+ xpos 8440
+ ypos 60
+}
+push $N22131400
+add_layer {coat_albedo coat_albedo.red coat_albedo.green coat_albedo.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 coat_albedo
+ fromInput2 {{0} B}
+ mappings "4 coat_albedo.red 0 0 rgba.red 0 0 coat_albedo.green 0 1 rgba.green 0 1 coat_albedo.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle58
+ label "\[value in1]"
+ selected true
+ xpos 9145
+ ypos -1367
+}
+Dot {
+ name Dot168
+ selected true
+ xpos 9179
+ ypos -1261
+}
+set N22131c00 [stack 0]
+Dot {
+ name Dot169
+ selected true
+ xpos 9179
+ ypos -419
+}
+set N6b186000 [stack 0]
+push $N6b186400
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 coat_direct
+ fromInput2 {{0} B}
+ mappings "4 coat_direct.red 0 0 rgba.red 0 0 coat_direct.green 0 1 rgba.green 0 1 coat_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle59
+ label "\[value in1]"
+ selected true
+ xpos 8845
+ ypos -1366
+}
+push $N22131c00
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge78
+ selected true
+ xpos 8845
+ ypos -1264
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge79
+ selected true
+ xpos 8845
+ ypos -422
+}
+Dot {
+ name Dot176
+ selected true
+ xpos 8879
+ ypos -372
+}
+push $N6b186000
+push $N22131000
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 coat_indirect
+ fromInput2 {{0} B}
+ mappings "4 coat_indirect.red 0 0 rgba.red 0 0 coat_indirect.green 0 1 rgba.green 0 1 coat_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle60
+ label "\[value in1]"
+ selected true
+ xpos 9445
+ ypos -1366
+}
+push $N22131c00
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge80
+ selected true
+ xpos 9445
+ ypos -1264
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge81
+ selected true
+ xpos 9445
+ ypos -422
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge82
+ selected true
+ xpos 9445
+ ypos -375
+}
+Dot {
+ name Dot177
+ selected true
+ xpos 9479
+ ypos -9
+}
+push $Nb852d400
+add_layer {sss_albedo sss_albedo.red sss_albedo.green sss_albedo.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 sss_albedo
+ fromInput2 {{0} B}
+ mappings "4 sss_albedo.red 0 0 rgba.red 0 0 sss_albedo.green 0 1 rgba.green 0 1 sss_albedo.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle13
+ label "\[value in1]"
+ selected true
+ xpos 10184
+ ypos -1367
+}
+Dot {
+ name Dot107
+ selected true
+ xpos 10218
+ ypos -1261
+}
+set Nb8b44000 [stack 0]
+Dot {
+ name Dot108
+ selected true
+ xpos 10218
+ ypos -419
+}
+set Nb8b44400 [stack 0]
+push $Nb8b44800
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 sss_direct
+ fromInput2 {{0} B}
+ mappings "4 sss_direct.red 0 0 rgba.red 0 0 sss_direct.green 0 1 rgba.green 0 1 sss_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle30
+ label "\[value in1]"
+ selected true
+ xpos 9884
+ ypos -1366
+}
+push $Nb8b44000
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge11
+ selected true
+ xpos 9884
+ ypos -1264
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge13
+ selected true
+ xpos 9884
+ ypos -422
+}
+Dot {
+ name Dot164
+ selected true
+ xpos 9918
+ ypos -372
+}
+push $Nb8b44400
+push $Nb852d000
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 sss_indirect
+ fromInput2 {{0} B}
+ mappings "4 sss_indirect.red 0 0 rgba.red 0 0 sss_indirect.green 0 1 rgba.green 0 1 sss_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle48
+ label "\[value in1]"
+ selected true
+ xpos 10484
+ ypos -1366
+}
+push $Nb8b44000
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge59
+ selected true
+ xpos 10484
+ ypos -1264
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge73
+ selected true
+ xpos 10484
+ ypos -422
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge77
+ selected true
+ xpos 10484
+ ypos -375
+}
+Dot {
+ name Dot165
+ selected true
+ xpos 10518
+ ypos -78
+}
+push $Nba6a8000
+add_layer {transmission_albedo transmission_albedo.red transmission_albedo.green transmission_albedo.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 transmission_albedo
+ fromInput2 {{0} B}
+ mappings "4 transmission_albedo.red 0 0 rgba.red 0 0 transmission_albedo.green 0 1 rgba.green 0 1 transmission_albedo.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle18
+ label "\[value in1]"
+ selected true
+ xpos 11223
+ ypos -1367
+}
+Dot {
+ name Dot153
+ selected true
+ xpos 11257
+ ypos -1261
+}
+set Nba6cb400 [stack 0]
+Dot {
+ name Dot161
+ selected true
+ xpos 11257
+ ypos -419
+}
+set Nba6cb800 [stack 0]
+push $Nba6a8400
+add_layer {transmission_direct transmission_direct.red transmission_direct.green transmission_direct.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 transmission_direct
+ fromInput2 {{0} B}
+ mappings "4 transmission_direct.red 0 0 rgba.red 0 0 transmission_direct.green 0 1 rgba.green 0 1 transmission_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle17
+ label "\[value in1]"
+ selected true
+ xpos 10923
+ ypos -1366
+}
+push $Nba6cb400
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge67
+ selected true
+ xpos 10923
+ ypos -1264
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge68
+ selected true
+ xpos 10923
+ ypos -422
+}
+Dot {
+ name Dot162
+ selected true
+ xpos 10957
+ ypos -372
+}
+push $Nba6cb800
+push $Nba68dc00
+add_layer {transmission_indirect transmission_indirect.red transmission_indirect.green transmission_indirect.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 transmission_indirect
+ fromInput2 {{0} B}
+ mappings "4 transmission_indirect.red 0 0 rgba.red 0 0 transmission_indirect.green 0 1 rgba.green 0 1 transmission_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle25
+ label "\[value in1]"
+ selected true
+ xpos 11523
+ ypos -1366
+}
+push $Nba6cb400
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge69
+ selected true
+ xpos 11523
+ ypos -1264
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge70
+ selected true
+ xpos 11523
+ ypos -422
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge72
+ selected true
+ xpos 11523
+ ypos -375
+}
+Dot {
+ name Dot83
+ selected true
+ xpos 11557
+ ypos -147
+}
+push $Nba68d400
+add_layer {specular_albedo specular_albedo.red specular_albedo.green specular_albedo.blue}
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 specular_albedo
+ fromInput2 {{0} B}
+ mappings "4 specular_albedo.red 0 0 rgba.red 0 0 specular_albedo.green 0 1 rgba.green 0 1 specular_albedo.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle15
+ label "\[value in1]"
+ selected true
+ xpos 12262
+ ypos -1367
+}
+Dot {
+ name Dot82
+ selected true
+ xpos 12296
+ ypos -1273
+}
+set Nba728400 [stack 0]
+Dot {
+ name Dot110
+ selected true
+ xpos 12296
+ ypos -431
+}
+set Nba728800 [stack 0]
+push $Nba68d800
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 specular_direct
+ fromInput2 {{0} B}
+ mappings "4 specular_direct.red 0 0 rgba.red 0 0 specular_direct.green 0 1 rgba.green 0 1 specular_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle14
+ label "\[value in1]"
+ selected true
+ xpos 11962
+ ypos -1367
+}
+push $Nba728400
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge62
+ selected true
+ xpos 11962
+ ypos -1276
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge63
+ selected true
+ xpos 11962
+ ypos -434
+}
+Dot {
+ name Dot149
+ selected true
+ xpos 11996
+ ypos -384
+}
+push $Nba728800
+push $Nba68d000
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 specular_indirect
+ fromInput2 {{0} B}
+ mappings "4 specular_indirect.red 0 0 rgba.red 0 0 specular_indirect.green 0 1 rgba.green 0 1 specular_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle16
+ label "\[value in1]"
+ selected true
+ xpos 12562
+ ypos -1367
+}
+push $Nba728400
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge64
+ selected true
+ xpos 12562
+ ypos -1276
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge65
+ selected true
+ xpos 12562
+ ypos -434
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge66
+ selected true
+ xpos 12562
+ ypos -387
+}
+Dot {
+ name Dot77
+ selected true
+ xpos 12596
+ ypos -216
+}
+push $Nba68c800
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 albedo
+ fromInput2 {{0} B}
+ mappings "4 albedo.red 0 0 rgba.red 0 0 albedo.green 0 1 rgba.green 0 1 albedo.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle55
+ label "\[value in1]"
+ selected true
+ xpos 13301
+ ypos -1367
+}
+Dot {
+ name Dot51
+ selected true
+ xpos 13335
+ ypos -1247
+}
+set Nba4b7400 [stack 0]
+Dot {
+ name Dot52
+ selected true
+ xpos 13335
+ ypos -428
+}
+set Nba4b7800 [stack 0]
+push $Nba68cc00
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 diffuse_direct
+ fromInput2 {{0} B}
+ mappings "4 diffuse_direct.red 0 0 rgba.red 0 0 diffuse_direct.green 0 1 rgba.green 0 1 diffuse_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle54
+ label "\[value in1]"
+ selected true
+ xpos 13001
+ ypos -1367
+}
+push $Nba4b7400
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge18
+ selected true
+ xpos 13001
+ ypos -1250
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge20
+ selected true
+ xpos 13001
+ ypos -431
+}
+Dot {
+ name Dot81
+ selected true
+ xpos 13035
+ ypos -381
+}
+push $Nba4b7800
+push $Nba68c400
+Shuffle2 {
+ fromInput1 {{0} B}
+ in1 diffuse_indirect
+ fromInput2 {{0} B}
+ mappings "4 diffuse_indirect.red 0 0 rgba.red 0 0 diffuse_indirect.green 0 1 rgba.green 0 1 diffuse_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+ name Shuffle56
+ label "\[value in1]"
+ selected true
+ xpos 13601
+ ypos -1367
+}
+push $Nba4b7400
+Merge2 {
+ inputs 2
+ operation divide
+ name Merge14
+ selected true
+ xpos 13601
+ ypos -1250
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ name Merge17
+ selected true
+ xpos 13601
+ ypos -431
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge61
+ selected true
+ xpos 13601
+ ypos -384
+}
+Dot {
+ name Dot185
+ selected true
+ xpos 13635
+ ypos -285
+}
+Dot {
+ inputs 0
+ name Dot186
+ selected true
+ xpos 13901
+ ypos -338
+ hide_input true
+}
+Merge2 {
+ inputs 2
+ mix {{parent.Beauty_Checker.Diffuse}}
+ name Merge88
+ label diffuse
+ selected true
+ xpos 13867
+ ypos -294
+}
+Merge2 {
+ inputs 2
+ operation plus
+ mix {{parent.Beauty_Checker.Specular}}
+ name Merge71
+ label specular
+ selected true
+ xpos 13867
+ ypos -225
+}
+Merge2 {
+ inputs 2
+ operation plus
+ mix {{parent.Beauty_Checker.Transmission}}
+ name Merge19
+ label transmission
+ selected true
+ xpos 13867
+ ypos -156
+}
+Merge2 {
+ inputs 2
+ mix {{parent.Beauty_Checker.SSS}}
+ name Merge89
+ label sss
+ selected true
+ xpos 13867
+ ypos -87
+}
+Merge2 {
+ inputs 2
+ mix {{parent.Beauty_Checker.Coat}}
+ name Merge90
+ label coat
+ selected true
+ xpos 13867
+ ypos -18
+}
+Merge2 {
+ inputs 2
+ mix {{parent.Beauty_Checker.Sheen}}
+ name Merge91
+ label sheen
+ selected true
+ xpos 13867
+ ypos 51
+}
+Merge2 {
+ inputs 2
+ operation plus
+ mix {{parent.Beauty_Checker.Emission}}
+ name Merge60
+ label emission
+ selected true
+ xpos 13867
+ ypos 120
+}
+Dot {
+ name Dot156
+ selected true
+ xpos 13901
+ ypos 170
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge12
+ selected true
+ xpos 14089
+ ypos 167
+}
+Dot {
+ name Dot120
+ selected true
+ xpos 14123
+ ypos 443
+}
+push $Nba23b000
+Dot {
+ name Dot158
+ selected true
+ xpos 13923
+ ypos -2108
+}
+LayerContactSheet {
+ showLayerNames true
+ name LayerContactSheet4
+ selected true
+ xpos 13889
+ ypos -2011
+}

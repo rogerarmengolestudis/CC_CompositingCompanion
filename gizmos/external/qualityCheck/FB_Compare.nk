@@ -1,0 +1,1400 @@
+set cut_paste_input [stack 0]
+version 15.2 v6
+push $cut_paste_input
+Gizmo {
+ name FB_QC4
+ knobChanged "\n \nthis_node = nuke.thisNode()\nthis_knob = nuke.thisKnob()\n \nif this_node.knob('select').value() == \"Difference\":\n    this_node.knob('DiffGain').setVisible(True)\n    this_node.knob('GrainGain').setVisible(False)\n    this_node.knob('BlacksExp').setVisible(False)\n    this_node.knob('WhitesGain').setVisible(False)\n    this_node.knob('Sat').setVisible(False)\n    this_node.knob('Dissolve').setVisible(False)\n    this_node.knob('Channels').setVisible(False)\n    this_node.knob('PixelError').setVisible(False)\n    this_node.knob('PixelErrorOverlay').setVisible(False)\nelif this_node.knob('select').value() == \"Grain\":\n    this_node.knob('DiffGain').setVisible(False)\n    this_node.knob('GrainGain').setVisible(True)\n    this_node.knob('BlacksExp').setVisible(False)\n    this_node.knob('WhitesGain').setVisible(False)\n    this_node.knob('Sat').setVisible(False)\n    this_node.knob('Dissolve').setVisible(False)\n    this_node.knob('Channels').setVisible(False)\n    this_node.knob('PixelError').setVisible(False)\n    this_node.knob('PixelErrorOverlay').setVisible(False)\nelif this_node.knob('select').value() == \"Blacks\":\n    this_node.knob('DiffGain').setVisible(False)\n    this_node.knob('GrainGain').setVisible(False)\n    this_node.knob('BlacksExp').setVisible(True)\n    this_node.knob('WhitesGain').setVisible(False)\n    this_node.knob('Sat').setVisible(False)\n    this_node.knob('Dissolve').setVisible(False)\n    this_node.knob('Channels').setVisible(False)\n    this_node.knob('ChannelsText').setVisible(False)\n    this_node.knob('PixelErrorOverlay').setVisible(False)\nelif this_node.knob('select').value() == \"Whites\":\n    this_node.knob('DiffGain').setVisible(False)\n    this_node.knob('GrainGain').setVisible(False)\n    this_node.knob('BlacksExp').setVisible(False)\n    this_node.knob('WhitesGain').setVisible(True)\n    this_node.knob('Sat').setVisible(False)\n    this_node.knob('Dissolve').setVisible(False)\n    this_node.knob('Channels').setVisible(False)\n    this_node.knob('PixelError').setVisible(False)\n    this_node.knob('PixelErrorOverlay').setVisible(False)\nelif this_node.knob('select').value() == \"Color\":\n    this_node.knob('DiffGain').setVisible(False)\n    this_node.knob('GrainGain').setVisible(False)\n    this_node.knob('BlacksExp').setVisible(False)\n    this_node.knob('WhitesGain').setVisible(False)\n    this_node.knob('Sat').setVisible(True)\n    this_node.knob('Dissolve').setVisible(False)\n    this_node.knob('Channels').setVisible(False)\n    this_node.knob('PixelError').setVisible(False)\n    this_node.knob('PixelErrorOverlay').setVisible(False)\nelif this_node.knob('select').value() == \"Channels\":\n    this_node.knob('DiffGain').setVisible(False)\n    this_node.knob('GrainGain').setVisible(False)\n    this_node.knob('BlacksExp').setVisible(False)\n    this_node.knob('WhitesGain').setVisible(False)\n    this_node.knob('Sat').setVisible(False)\n    this_node.knob('Dissolve').setVisible(False)\n    this_node.knob('Channels').setVisible(True)\n    this_node.knob('PixelError').setVisible(False)\n    this_node.knob('PixelErrorOverlay').setVisible(False)\nelif this_node.knob('select').value() == \"Dissolve\":\n    this_node.knob('DiffGain').setVisible(False)\n    this_node.knob('GrainGain').setVisible(False)\n    this_node.knob('BlacksExp').setVisible(False)\n    this_node.knob('WhitesGain').setVisible(False)\n    this_node.knob('Sat').setVisible(False)\n    this_node.knob('Dissolve').setVisible(True)\n    this_node.knob('Channels').setVisible(False)\n    this_node.knob('PixelError').setVisible(False)\n    this_node.knob('PixelErrorOverlay').setVisible(False)\nelif this_node.knob('select').value() == \"Pixel Error\":\n    this_node.knob('DiffGain').setVisible(False)\n    this_node.knob('GrainGain').setVisible(False)\n    this_node.knob('BlacksExp').setVisible(False)\n    this_node.knob('WhitesGain').setVisible(False)\n    this_node.knob('Sat').setVisible(False)\n    this_node.knob('Dissolve').setVisible(False)\n    this_node.knob('Channels').setVisible(False)\n    this_node.knob('PixelError').setVisible(True)\n    this_node.knob('PixelErrorText').setVisible(True)\n    \nif this_node.knob('borders').value() == \"Default\":\n    this_node.knob('bkgcolor').setVisible(False)\n    this_node.knob('borderSize').setVisible(False)\nelif this_node.knob('borders').value() == \"Full\":\n    this_node.knob('bkgcolor').setVisible(True)\n    this_node.knob('borderSize').setVisible(True)\nelif this_node.knob('borders').value() == \"Top Right\":\n    this_node.knob('bkgcolor').setVisible(True) \n    this_node.knob('borderSize').setVisible(True)   \nelif this_node.knob('borders').value() == \"Top Left\":\n    this_node.knob('bkgcolor').setVisible(True)  \n    this_node.knob('borderSize').setVisible(True)  \nelif this_node.knob('borders').value() == \"Bottom Right\":\n    this_node.knob('bkgcolor').setVisible(True)  \n    this_node.knob('borderSize').setVisible(True)  \nelif this_node.knob('borders').value() == \"Bottom Left\":\n    this_node.knob('bkgcolor').setVisible(True)  \n    this_node.knob('borderSize').setVisible(True)  \n  \n"
+ tile_color 0x6a55ffff
+ label "\[value select]\n"
+ note_font "Verdana Bold"
+ note_font_size 12
+ selected true
+ xpos 25941
+ ypos 8868
+ addUserKnob {20 mode l QC}
+ addUserKnob {26 MODE l "" t "\n<b>Difference</b> – Check if the comp is safe and shows no difference from the plate.\n\n<b>Grain</b> – Check grain consistency between the comp and the plate.\n\n<b>Blacks</b> – Check the black point levels of your comp.\n\n<b>Whites</b> – Check the white point levels of your comp.\n\n<b>Color</b> – Compare the saturation of your comp to the plate.\n\n<b>Channels</b> – Inspect different channels to check consistency with the plate.\n\n<b>Pixel Error</b> – Displays an RGB warning map if any negative, NaN, or infinite pixel values are present in your comp.\n\n<b>Dissolve</b> – A Dissolve knob between comp and plate, useful for checking tracks and other issues." +STARTLINE T "<p style=\"color: orange; font-weight: bold;\">MODE</p>"}
+ addUserKnob {4 select l " " t "\n<b>Difference</b> – Check if the comp is safe and shows no difference from the plate.\n\n<b>Grain</b> – Check grain consistency between the comp and the plate.\n\n<b>Blacks</b> – Check the black point levels of your comp.\n\n<b>Whites</b> – Check the white point levels of your comp.\n\n<b>Color</b> – Compare the saturation of your comp to the plate.\n\n<b>Channels</b> – Inspect different channels to check consistency with the plate.\n\n<b>Pixel Error</b> – Displays an RGB warning map if any negative, NaN, or infinite pixel values are present in your comp.\n\n<b>Dissolve</b> – A Dissolve knob between comp and plate, useful for checking tracks and other issues." M {Difference Grain Blacks Whites Color Channels "Pixel Error" Dissolve "" ""}}
+ addUserKnob {32 Compare l "<p style=\"color: yellow; font-weight: bold;\">Compare</p>" -STARTLINE T "# Get the Switch node (change \"Switch1\" to the actual name of your node)\nset switchNode \[node Switch2]\n\n# Get the current value of the \"which\" knob\nset currentValue \[value \$switchNode.which]\n\n# Toggle the value (if 0, set to 1; if 1, set to 0)\nif \{\$currentValue == 0\} \{\n    set newValue 1\n\} else \{\n    set newValue 0\n\}\n\n# Set the new value to the \"which\" knob\nknob \$switchNode.which \$newValue"}
+ addUserKnob {6 sbs l "Side by Side" -STARTLINE}
+ addUserKnob {26 space4 l "" +STARTLINE T " "}
+ addUserKnob {26 SETTINGS l "" t "\n<b>Note:</b> Each mode has its own specific settings. \nAdjust parameters accordingly — they may vary depending on the plate and comp HSVL levels, or just select the channels to inspect" +STARTLINE T "<p style=\"color: orange; font-weight: bold;\">SETTINGS</p>"}
+ addUserKnob {7 DiffGain l Gain R 0 4}
+ DiffGain 1
+ addUserKnob {7 GrainGain l Gain +HIDDEN R 0 4}
+ GrainGain 4
+ addUserKnob {7 BlacksExp l Exposure +HIDDEN R 0.5 1}
+ BlacksExp 1
+ addUserKnob {7 WhitesGain l Gain +HIDDEN R 0 4}
+ WhitesGain 1
+ addUserKnob {7 Sat l Saturation +HIDDEN R 0 4}
+ Sat 4
+ addUserKnob {4 Channels l "Channel Select" +HIDDEN M {Red Green BLUE Alpha Hue SATURATION LUMINANCE "" ""}}
+ Channels BLUE
+ addUserKnob {4 PixelError l "Mode Select" t "Check NEG, NAN, INF pixels" +HIDDEN M {ALL Neg NaN Inf "" "" "" "" ""}}
+ addUserKnob {6 PixelErrorOverlay l "Overlay RGB Values" -STARTLINE +HIDDEN}
+ addUserKnob {7 Dissolve +HIDDEN}
+ addUserKnob {26 space_1 l "" +STARTLINE T "  "}
+ addUserKnob {26 ""}
+ addUserKnob {26 space5 l "" +STARTLINE T "  "}
+ addUserKnob {26 BOUNDARIES l "" t "\nUse this to check for artifacts or edge lines (errors) at the frame boundaries.\n\n" +STARTLINE T "<p style=\"color: orange; font-weight: bold;\">BOUNDARIES</p>"}
+ addUserKnob {26 space2 l "" +STARTLINE T " "}
+ addUserKnob {4 borders l "Check Boundaries" M {Default Full "Top Left" "Top Right" "Bottom Left" "Bottom Righ" "" ""}}
+ addUserKnob {18 bkgcolor l "Border Color" +HIDDEN}
+ bkgcolor {1 0 0}
+ addUserKnob {6 bkgcolor_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {7 borderSize l "Border Size" +HIDDEN R 1 100}
+ borderSize 80
+ addUserKnob {26 space l "" +STARTLINE T " "}
+ addUserKnob {26 ""}
+ addUserKnob {26 sign l "" +STARTLINE T "<p style=\"align: center; color: cyan; font-weight: bold; font-style: italic;\">@by Felix Bueno</p>"}
+}
+ Input {
+  inputs 0
+  name plate
+  xpos -1573
+  ypos 736
+ }
+ Dot {
+  name Dot2
+  label " PLATE"
+  note_font "Verdana Bold"
+  note_font_size 20
+  xpos -1545
+  ypos 811
+ }
+set N20fb5800 [stack 0]
+ Dot {
+  name Dot6
+  xpos -1545
+  ypos 954
+ }
+set N20fb5c00 [stack 0]
+ Dot {
+  name Dot16
+  xpos -1545
+  ypos 1325
+ }
+set N20fb5400 [stack 0]
+ Dot {
+  name Dot17
+  xpos -1545
+  ypos 1802
+ }
+set N20fb3c00 [stack 0]
+ Dot {
+  name Dot7
+  xpos -1545
+  ypos 2030
+ }
+set N20fb3800 [stack 0]
+ Dot {
+  name Dot32
+  xpos -1545
+  ypos 2290
+ }
+set N20fb3400 [stack 0]
+ Dot {
+  name Dot22
+  xpos -1545
+  ypos 2574
+ }
+set N1e60f800 [stack 0]
+ Dot {
+  name Dot26
+  xpos -1545
+  ypos 3563
+ }
+set N1e60fc00 [stack 0]
+ Dot {
+  name Dot52
+  xpos -1545
+  ypos 3657
+ }
+set N1e60ec00 [stack 0]
+ Dot {
+  name Dot45
+  xpos -840
+  ypos 3657
+ }
+push $N1e60ec00
+ Dot {
+  name Dot61
+  xpos -1545
+  ypos 4157
+ }
+ Dot {
+  name Dot100
+  xpos -1766
+  ypos 4157
+ }
+set N1dfb1000 [stack 0]
+ Dot {
+  name Dot77
+  xpos -2152
+  ypos 4157
+ }
+set N1dfb0c00 [stack 0]
+ Dot {
+  name Dot78
+  xpos -2262
+  ypos 4157
+ }
+set N1df37000 [stack 0]
+ Dot {
+  name Dot79
+  xpos -2397
+  ypos 4157
+ }
+set N1d93ec00 [stack 0]
+ Dot {
+  name Dot80
+  xpos -2535
+  ypos 4157
+ }
+set N1d93f400 [stack 0]
+ Dot {
+  name Dot82
+  xpos -2645
+  ypos 4157
+ }
+set N1d93f000 [stack 0]
+ Dot {
+  name Dot83
+  xpos -2755
+  ypos 4157
+ }
+ Expression {
+  expr0 "isinf(r) ?1:0"
+  expr1 "isinf(g) ?1:0"
+  expr2 "isinf(b) ?1:0"
+  channel3 alpha
+  expr3 "clamp((isinf(r) ?1:0)+(isinf(g) ?1:0)+(isinf(b) ?1:0))"
+  name Inf_detector1
+  label "INF PIXELS"
+  xpos -2783
+  ypos 4336
+ }
+set N3c776800 [stack 0]
+push $N1d93f000
+ Merge2 {
+  inputs 2
+  name Merge9
+  xpos -2673
+  ypos 4342
+ }
+push $N3c776800
+ Dot {
+  name Dot84
+  xpos -2749
+  ypos 4473
+ }
+ Switch {
+  inputs 2
+  which {{parent.PixelErrorOverlay}}
+  name Switch9
+  xpos -2667
+  ypos 4476
+ }
+ set C3c777200 [stack 0]
+push $N1d93f400
+ Expression {
+  expr0 "isnan(r) ?1:0"
+  expr1 "isnan(g) ?1:0"
+  expr2 "isnan(b) ?1:0"
+  channel3 alpha
+  expr3 "clamp((isnan(r) ?1:0)+(isnan(g) ?1:0)+(isnan(b) ?1:0))"
+  name Nan_detector1
+  label "NAN PIXELS"
+  xpos -2563
+  ypos 4333
+ }
+set N3c777700 [stack 0]
+push $N1d93ec00
+ Merge2 {
+  inputs 2
+  name Merge8
+  xpos -2425
+  ypos 4339
+ }
+push $N3c777700
+ Dot {
+  name Dot81
+  xpos -2529
+  ypos 4478
+ }
+clone $C3c777200 {
+  inputs 2
+  xpos -2419
+  ypos 4481
+  selected false
+ }
+push $N1df37000
+ Expression {
+  expr0 r<0?1:0
+  expr1 g<0?1:0
+  expr2 b<0?1:0
+  channel3 alpha
+  expr3 clamp((r<0?1:0)+(g<0?1:0)+(b<0?1:0))
+  name Neg_detector1
+  label "NEGATIVE PIXELS"
+  xpos -2290
+  ypos 4329
+ }
+set N1d4f7e00 [stack 0]
+push $N1dfb0c00
+ Merge2 {
+  inputs 2
+  name Merge10
+  xpos -2177
+  ypos 4335
+ }
+push $N1d4f7e00
+ Dot {
+  name Dot85
+  xpos -2256
+  ypos 4472
+ }
+clone $C3c777200 {
+  inputs 2
+  xpos -2177
+  ypos 4468
+  selected false
+ }
+push $N3c776800
+push 0
+push $N3c777700
+push $N1d4f7e00
+ Merge2 {
+  inputs 3+1
+  name Merge36
+  xpos -1910
+  ypos 4436
+ }
+set N30b5b400 [stack 0]
+push $N1dfb1000
+ Merge2 {
+  inputs 2
+  name Merge37
+  xpos -1794
+  ypos 4436
+ }
+push $N30b5b400
+ Dot {
+  name Dot102
+  xpos -1882
+  ypos 4509
+ }
+clone $C3c777200 {
+  inputs 2
+  xpos -1794
+  ypos 4512
+  selected false
+ }
+ Dot {
+  name Dot63
+  xpos -1760
+  ypos 4886
+ }
+ Switch {
+  inputs 4
+  which {{parent.PixelError}}
+  name Switch8
+  xpos -2171
+  ypos 4889
+ }
+ set C1dd25e00 [stack 0]
+ Dot {
+  name Dot64
+  xpos -2149
+  ypos 5299
+ }
+set N1e5d8000 [stack 0]
+ Dot {
+  name Dot66
+  xpos -908
+  ypos 5299
+ }
+push $N1e60f800
+ Dot {
+  name Dot98
+  xpos -1786
+  ypos 2574
+ }
+set N1ecc8400 [stack 0]
+ Colorspace {
+  colorspace_out HSL
+  name Colorspace2
+  xpos -1814
+  ypos 2620
+ }
+set N1dd25900 [stack 0]
+ Shuffle2 {
+  fromInput1 {
+   {0}
+   B
+  }
+  fromInput2 {
+   {0}
+   B
+  }
+  mappings "4 black -1 -1 rgba.alpha 0 3 rgba.blue 0 2 rgba.red 0 0 rgba.blue 0 2 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2"
+  name Shuffle8
+  label luminance
+  xpos -1814
+  ypos 2692
+ }
+ set C1df2c300 [stack 0]
+push $N1dd25900
+ Dot {
+  name Dot86
+  xpos -1875
+  ypos 2617
+ }
+set N1ecc8800 [stack 0]
+ Shuffle2 {
+  fromInput1 {
+   {0}
+   B
+  }
+  fromInput2 {
+   {0}
+   B
+  }
+  mappings "4 rgba.green 0 1 rgba.blue 0 2 rgba.green 0 1 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 black -1 -1 rgba.alpha 0 3"
+  name Shuffle7
+  label saturation
+  xpos -1903
+  ypos 2694
+ }
+ set C1df2be00 [stack 0]
+push $N1ecc8800
+ Dot {
+  name Dot97
+  xpos -1985
+  ypos 2617
+ }
+ Shuffle2 {
+  fromInput1 {
+   {0}
+   B
+  }
+  fromInput2 {
+   {0}
+   B
+  }
+  mappings "4 black -1 -1 rgba.alpha 0 3 rgba.red 0 0 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.red 0 0 rgba.blue 0 2"
+  name Shuffle9
+  label hue
+  xpos -2013
+  ypos 2694
+ }
+ set C530b200 [stack 0]
+push $N1ecc8400
+ Dot {
+  name Dot96
+  xpos -2095
+  ypos 2574
+ }
+set Ne0812400 [stack 0]
+ Shuffle2 {
+  fromInput1 {
+   {0}
+   B
+  }
+  fromInput2 {
+   {0}
+   B
+  }
+  mappings "4 black -1 -1 rgba.alpha 0 3 rgba.alpha 0 3 rgba.red 0 0 rgba.alpha 0 3 rgba.green 0 1 rgba.alpha 0 3 rgba.blue 0 2"
+  name Shuffle6
+  label alpha
+  xpos -2123
+  ypos 2694
+ }
+ set C530ad00 [stack 0]
+push $Ne0812400
+ Dot {
+  name Dot95
+  xpos -2205
+  ypos 2574
+ }
+set Ne0812800 [stack 0]
+ Shuffle2 {
+  fromInput1 {
+   {0}
+   B
+  }
+  fromInput2 {
+   {0}
+   B
+  }
+  mappings "4 black -1 -1 rgba.alpha 0 3 rgba.blue 0 2 rgba.red 0 0 rgba.blue 0 2 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2"
+  name Shuffle5
+  label blue
+  xpos -2233
+  ypos 2694
+ }
+ set C530a800 [stack 0]
+push $Ne0812800
+ Dot {
+  name Dot94
+  xpos -2315
+  ypos 2574
+ }
+set Ne0812c00 [stack 0]
+ Shuffle2 {
+  fromInput1 {
+   {0}
+   B
+  }
+  fromInput2 {
+   {0}
+   B
+  }
+  mappings "4 rgba.green 0 1 rgba.blue 0 2 rgba.green 0 1 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 black -1 -1 rgba.alpha 0 3"
+  name Shuffle4
+  label green
+  xpos -2343
+  ypos 2694
+ }
+ set C530a300 [stack 0]
+push $Ne0812c00
+ Dot {
+  name Dot93
+  xpos -2436
+  ypos 2574
+ }
+ Shuffle2 {
+  fromInput1 {
+   {0}
+   B
+  }
+  fromInput2 {
+   {0}
+   B
+  }
+  mappings "4 black -1 -1 rgba.alpha 0 3 rgba.red 0 0 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.red 0 0 rgba.blue 0 2"
+  name Shuffle1
+  label red
+  xpos -2464
+  ypos 2692
+ }
+ set C5309e00 [stack 0]
+ Switch {
+  inputs 7
+  which {{parent.Channels}}
+  name Switch10
+  xpos -2464
+  ypos 3015
+ }
+ set C5309900 [stack 0]
+ Dot {
+  name Dot23
+  xpos -2436
+  ypos 3114
+ }
+set Ne0813400 [stack 0]
+ Dot {
+  name Dot51
+  xpos -898
+  ypos 3114
+ }
+push $N20fb3400
+ Saturation {
+  saturation {{parent.Sat}}
+  name Saturation1
+  xpos -1827
+  ypos 2293
+ }
+ set C5309400 [stack 0]
+ Dot {
+  name Dot33
+  xpos -1793
+  ypos 2394
+ }
+set Ne0813c00 [stack 0]
+ Dot {
+  name Dot46
+  xpos -872
+  ypos 2394
+ }
+push $N20fb3800
+ Grade {
+  white 0.018
+  multiply {{parent.WhitesGain}}
+  name Grade2
+  xpos -1822
+  ypos 2033
+ }
+ set C5308f00 [stack 0]
+ Dot {
+  name Dot15
+  xpos -1788
+  ypos 2145
+ }
+set N4a792400 [stack 0]
+ Dot {
+  name Dot47
+  xpos -826
+  ypos 2145
+ }
+push $N20fb3c00
+ EXPTool {
+  red {{parent.BlacksExp}}
+  green {{parent.BlacksExp}}
+  blue {{parent.BlacksExp}}
+  name Exposure1
+  xpos -1751
+  ypos 1805
+ }
+ set C4a799900 [stack 0]
+ Dot {
+  name Dot18
+  xpos -1723
+  ypos 1917
+ }
+set N4a792c00 [stack 0]
+ Dot {
+  name Dot48
+  xpos -769
+  ypos 1917
+ }
+push $N20fb5400
+ Dot {
+  name Dot11
+  xpos -1627
+  ypos 1325
+ }
+set N4a793400 [stack 0]
+ Blur {
+  size 2
+  name Blur2
+  xpos -1655
+  ypos 1425
+ }
+push $N4a793400
+ Dot {
+  name Dot12
+  xpos -1805
+  ypos 1325
+ }
+ Merge2 {
+  inputs 2
+  operation from
+  name Merge3
+  xpos -1833
+  ypos 1431
+ }
+ Grade {
+  white {{parent.GrainGain}}
+  gamma 3
+  name Grade1
+  xpos -1833
+  ypos 1501
+ }
+ set C4a79ad00 [stack 0]
+ Dot {
+  name Dot14
+  xpos -1799
+  ypos 1583
+ }
+set N4a793c00 [stack 0]
+ Dot {
+  name Dot49
+  xpos -696
+  ypos 1583
+ }
+push $N20fb5c00
+ Dot {
+  name Dot19
+  xpos -1747
+  ypos 954
+ }
+set N4a7e0400 [stack 0]
+ Dot {
+  name Dot20
+  xpos -1747
+  ypos 1057
+ }
+set N4a7e0800 [stack 0]
+ Dot {
+  name Dot50
+  xpos -602
+  ypos 1057
+ }
+ Switch {
+  inputs 8
+  which {{parent.select}}
+  name Switch1
+  xpos 32
+  ypos 5689
+ }
+ set C4a7cf900 [stack 0]
+push $N1e60ec00
+push $N1e60fc00
+ Input {
+  inputs 0
+  name render
+  xpos -4806
+  ypos 740
+  number 1
+ }
+ Dot {
+  name Dot1
+  label " RENDER"
+  note_font "Verdana Bold"
+  note_font_size 20
+  xpos -4778
+  ypos 810
+ }
+ Dot {
+  name Dot3
+  xpos -4778
+  ypos 954
+ }
+set N4a7e1400 [stack 0]
+ Dot {
+  name Dot13
+  xpos -4778
+  ypos 1321
+ }
+set N4a7e1800 [stack 0]
+ Dot {
+  name Dot8
+  xpos -4778
+  ypos 1796
+ }
+set N4a7e1c00 [stack 0]
+ Dot {
+  name Dot21
+  xpos -4778
+  ypos 2024
+ }
+set N4a800000 [stack 0]
+ Dot {
+  name Dot31
+  xpos -4778
+  ypos 2292
+ }
+set N4a800400 [stack 0]
+ Dot {
+  name Dot24
+  xpos -4778
+  ypos 2540
+ }
+set N4a800800 [stack 0]
+ Dot {
+  name Dot25
+  xpos -4778
+  ypos 3563
+ }
+set N4a800c00 [stack 0]
+ Dissolve {
+  inputs 2
+  which {{parent.Dissolve}}
+  name Dissolve1
+  xpos -3855
+  ypos 3560
+ }
+ Switch {
+  inputs 2
+  name Switch2
+  xpos -3855
+  ypos 3660
+ }
+ set C4a7d0300 [stack 0]
+ Dot {
+  name Dot59
+  xpos -3827
+  ypos 3754
+ }
+ Dot {
+  name Dot60
+  xpos 944
+  ypos 3754
+ }
+push $N1e5d8000
+push $N4a800c00
+ Dot {
+  name Dot58
+  xpos -4778
+  ypos 4157
+ }
+ Dot {
+  name Dot99
+  xpos -4493
+  ypos 4157
+ }
+set N4a801c00 [stack 0]
+ Dot {
+  name Dot74
+  xpos -4063
+  ypos 4157
+ }
+set N4cbba000 [stack 0]
+ Dot {
+  name Dot73
+  xpos -3942
+  ypos 4157
+ }
+set N4cbba400 [stack 0]
+ Dot {
+  name Dot72
+  xpos -3809
+  ypos 4157
+ }
+set N4cbba800 [stack 0]
+ Dot {
+  name Dot71
+  xpos -3699
+  ypos 4157
+ }
+set N4cbbac00 [stack 0]
+ Dot {
+  name Dot76
+  xpos -3577
+  ypos 4157
+ }
+set N4cbbb000 [stack 0]
+ Dot {
+  name Dot70
+  xpos -3444
+  ypos 4157
+ }
+ Expression {
+  expr0 "isinf(r) ?1:0"
+  expr1 "isinf(g) ?1:0"
+  expr2 "isinf(b) ?1:0"
+  channel3 alpha
+  expr3 "clamp((isinf(r) ?1:0)+(isinf(g) ?1:0)+(isinf(b) ?1:0))"
+  name Inf_detector
+  label "INF PIXELS"
+  xpos -3478
+  ypos 4336
+ }
+set N4a7d0800 [stack 0]
+push $N4cbbb000
+ Merge2 {
+  inputs 2
+  name Merge7
+  xpos -3611
+  ypos 4342
+ }
+push $N4a7d0800
+ Dot {
+  name Dot75
+  xpos -3450
+  ypos 4466
+ }
+clone $C3c777200 {
+  inputs 2
+  xpos -3611
+  ypos 4472
+  selected false
+ }
+push $N4cbbac00
+ Expression {
+  expr0 "isnan(r) ?1:0"
+  expr1 "isnan(g) ?1:0"
+  expr2 "isnan(b) ?1:0"
+  channel3 alpha
+  expr3 "clamp((isnan(r) ?1:0)+(isnan(g) ?1:0)+(isnan(b) ?1:0))"
+  name Nan_detector
+  label "NAN PIXELS"
+  xpos -3733
+  ypos 4333
+ }
+set N4a7d1700 [stack 0]
+push $N4cbba800
+ Merge2 {
+  inputs 2
+  name Merge6
+  xpos -3843
+  ypos 4339
+ }
+push $N4a7d1700
+ Dot {
+  name Dot69
+  xpos -3705
+  ypos 4471
+ }
+clone $C3c777200 {
+  inputs 2
+  xpos -3843
+  ypos 4474
+  selected false
+ }
+push $N4cbba400
+ Expression {
+  expr0 r<0?1:0
+  expr1 g<0?1:0
+  expr2 b<0?1:0
+  channel3 alpha
+  expr3 clamp((r<0?1:0)+(g<0?1:0)+(b<0?1:0))
+  name Neg_detector
+  label "NEGATIVE PIXELS"
+  xpos -3976
+  ypos 4329
+ }
+set N4cbf0a00 [stack 0]
+push $N4cbba000
+ Merge2 {
+  inputs 2
+  name Merge5
+  xpos -4094
+  ypos 4335
+ }
+push $N4cbf0a00
+ Dot {
+  name Dot68
+  xpos -3948
+  ypos 4465
+ }
+clone $C3c777200 {
+  inputs 2
+  xpos -4094
+  ypos 4468
+  selected false
+ }
+push $N4a7d0800
+push 0
+push $N4a7d1700
+push $N4cbf0a00
+ Merge2 {
+  inputs 3+1
+  name Merge34
+  xpos -4388
+  ypos 4424
+ }
+set N4cbf1900 [stack 0]
+push $N4a801c00
+ Merge2 {
+  inputs 2
+  name Merge33
+  xpos -4527
+  ypos 4424
+ }
+push $N4cbf1900
+ Dot {
+  name Dot101
+  xpos -4354
+  ypos 4621
+ }
+clone $C3c777200 {
+  inputs 2
+  xpos -4527
+  ypos 4617
+  selected false
+ }
+ Dot {
+  name Dot62
+  xpos -4493
+  ypos 4895
+ }
+clone $C1dd25e00 {
+  inputs 4
+  xpos -4094
+  ypos 4891
+  selected false
+ }
+clone $C4a7d0300 {
+  inputs 2
+  xpos -4094
+  ypos 5302
+  selected false
+ }
+ Dot {
+  name Dot65
+  xpos -4060
+  ypos 5454
+ }
+ Dot {
+  name Dot67
+  xpos 1100
+  ypos 5454
+ }
+push $Ne0813400
+push $N4a800800
+ Dot {
+  name Dot43
+  xpos -4531
+  ypos 2540
+ }
+set N4cc13400 [stack 0]
+ Dot {
+  name Dot87
+  xpos -4421
+  ypos 2540
+ }
+set N4cc13800 [stack 0]
+ Dot {
+  name Dot88
+  xpos -4274
+  ypos 2540
+ }
+set N4cc13c00 [stack 0]
+ Dot {
+  name Dot89
+  xpos -4145
+  ypos 2540
+ }
+set N4cc54000 [stack 0]
+ Dot {
+  name Dot90
+  xpos -4013
+  ypos 2540
+ }
+ Colorspace {
+  colorspace_out HSL
+  name Colorspace1
+  xpos -4047
+  ypos 2590
+ }
+set N4cbf3200 [stack 0]
+ Dot {
+  name Dot91
+  xpos -3891
+  ypos 2594
+ }
+set N4cc54800 [stack 0]
+ Dot {
+  name Dot92
+  xpos -3771
+  ypos 2594
+ }
+clone $C1df2c300 {
+  xpos -3805
+  ypos 2677
+  selected false
+ }
+push $N4cc54800
+clone $C1df2be00 {
+  xpos -3925
+  ypos 2675
+  selected false
+ }
+push $N4cbf3200
+clone $C530b200 {
+  xpos -4041
+  ypos 2675
+  selected false
+ }
+push $N4cc54000
+clone $C530ad00 {
+  xpos -4179
+  ypos 2669
+  selected false
+ }
+push $N4cc13c00
+clone $C530a800 {
+  xpos -4308
+  ypos 2668
+  selected false
+ }
+push $N4cc13800
+clone $C530a300 {
+  xpos -4455
+  ypos 2669
+  selected false
+ }
+push $N4cc13400
+clone $C5309e00 {
+  xpos -4565
+  ypos 2669
+  selected false
+ }
+clone $C5309900 {
+  inputs 7
+  xpos -4565
+  ypos 3024
+  selected false
+ }
+ Dot {
+  name Dot44
+  xpos -4531
+  ypos 3121
+ }
+clone $C4a7d0300 {
+  inputs 2
+  xpos -3713
+  ypos 3117
+  selected false
+ }
+ Dot {
+  name Dot34
+  xpos -3679
+  ypos 3206
+ }
+ Dot {
+  name Dot30
+  xpos 962
+  ypos 3206
+ }
+push $Ne0813c00
+push $N4a800400
+clone $C5309400 {
+  xpos -4612
+  ypos 2288
+  selected false
+ }
+clone $C4a7d0300 {
+  inputs 2
+  xpos -4612
+  ypos 2397
+  selected false
+ }
+ Dot {
+  name Dot39
+  xpos -4578
+  ypos 2454
+ }
+ Dot {
+  name Dot38
+  xpos 875
+  ypos 2454
+ }
+push $N4a792400
+push $N4a800000
+clone $C5308f00 {
+  xpos -4627
+  ypos 2027
+  selected false
+ }
+clone $C4a7d0300 {
+  inputs 2
+  xpos -4627
+  ypos 2148
+  selected false
+ }
+ Dot {
+  name Dot35
+  xpos -4593
+  ypos 2223
+ }
+ Dot {
+  name Dot29
+  xpos 975
+  ypos 2223
+ }
+push $N4a792c00
+push $N4a7e1c00
+clone $C4a799900 {
+  xpos -4577
+  ypos 1799
+  selected false
+ }
+clone $C4a7d0300 {
+  inputs 2
+  xpos -4580
+  ypos 1920
+  selected false
+ }
+ Dot {
+  name Dot36
+  xpos -4552
+  ypos 1966
+ }
+ Dot {
+  name Dot28
+  xpos 1037
+  ypos 1966
+ }
+push $N4a793c00
+push $N4a7e1800
+ Dot {
+  name Dot9
+  xpos -4640
+  ypos 1321
+ }
+set N4a295400 [stack 0]
+ Blur {
+  size 2
+  name Blur1
+  xpos -4668
+  ypos 1421
+ }
+push $N4a295400
+ Dot {
+  name Dot10
+  xpos -4524
+  ypos 1321
+ }
+ Merge2 {
+  inputs 2
+  operation from
+  name Merge2
+  xpos -4558
+  ypos 1427
+ }
+clone $C4a79ad00 {
+  xpos -4558
+  ypos 1502
+  selected false
+ }
+clone $C4a7d0300 {
+  inputs 2
+  xpos -4558
+  ypos 1579
+  selected false
+ }
+ Dot {
+  name Dot37
+  xpos -4524
+  ypos 1671
+ }
+ Dot {
+  name Dot27
+  xpos 1114
+  ypos 1671
+ }
+push $N4a7e0800
+push $N4a7e1400
+push $N4a7e0400
+ Merge2 {
+  inputs 2
+  operation difference
+  name Merge1
+  xpos -4502
+  ypos 957
+ }
+ Grade {
+  white {{parent.DiffGain}}
+  name Grade3
+  xpos -4502
+  ypos 1007
+ }
+clone $C4a7d0300 {
+  inputs 2
+  xpos -4502
+  ypos 1060
+  selected false
+ }
+ Dot {
+  name Dot4
+  xpos -4474
+  ypos 1198
+ }
+ Dot {
+  name Dot5
+  xpos 1386
+  ypos 1198
+ }
+clone $C4a7cf900 {
+  inputs 8
+  xpos 1352
+  ypos 5692
+  selected false
+ }
+ NoOp {
+  name inputformat
+  xpos 1352
+  ypos 5809
+  addUserKnob {20 User}
+  addUserKnob {14 inputFormat R 0 100}
+  inputFormat {{format.r} {format.t}}
+ }
+ Dot {
+  name Dot54
+  xpos 1386
+  ypos 5893
+ }
+set N4a2f3000 [stack 0]
+ ContactSheet {
+  inputs 2
+  width {{input.format.r*2}}
+  height {{input.format.t}}
+  rows 1
+  columns 2
+  name ContactSheet1
+  xpos 32
+  ypos 5889
+ }
+ Dot {
+  name Dot53
+  xpos 60
+  ypos 6802
+ }
+ Constant {
+  inputs 0
+  channels rgb
+  color {{parent.bkgcolor} {parent.bkgcolor} {parent.bkgcolor} {parent.bkgcolor}}
+  name Constant1
+  xpos 1963
+  ypos 5751
+ }
+ Reformat {
+  type "to box"
+  box_width {{inputformat.inputFormat.w}}
+  box_height {{inputformat.inputFormat.h}}
+  box_fixed true
+  name Reformat4
+  xpos 1963
+  ypos 5918
+ }
+ Transform {
+  scale 1.25
+  center {{inputformat.inputFormat.w/2} {inputformat.inputFormat.h/2}}
+  name Transform5
+  xpos 1963
+  ypos 5956
+ }
+ Shuffle2 {
+  fromInput1 {
+   {0}
+   B
+  }
+  fromInput2 {
+   {0}
+   B
+  }
+  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 white -1 -1 rgba.alpha 0 3"
+  name Shuffle3
+  xpos 1963
+  ypos 5998
+ }
+push $N4a2f3000
+ Shuffle2 {
+  fromInput1 {
+   {0}
+   B
+  }
+  fromInput2 {
+   {0}
+   B
+  }
+  mappings "4 rgba.red 0 0 rgba.red 0 0 rgba.green 0 1 rgba.green 0 1 rgba.blue 0 2 rgba.blue 0 2 white -1 -1 rgba.alpha 0 3"
+  name Shuffle2
+  xpos 1745
+  ypos 5896
+ }
+ Reformat {
+  type "to box"
+  box_width {{inputformat.inputFormat.w}}
+  box_height {{inputformat.inputFormat.h}}
+  box_fixed true
+  name Reformat2
+  xpos 1745
+  ypos 5971
+ }
+ Reformat {
+  type "to box"
+  box_width {{format.r+borderSize}}
+  box_height {{format.t+borderSize}}
+  scale 1.01
+  resize none
+  black_outside true
+  name Reformat1
+  xpos 1745
+  ypos 6032
+ }
+ Merge2 {
+  inputs 2
+  operation under
+  name Merge4
+  xpos 1745
+  ypos 6120
+ }
+set N4a33d900 [stack 0]
+ Transform {
+  scale 2
+  center {{format.x+format.r} {format.y}}
+  name Transform4
+  label "Bottom Right"
+  xpos 2297
+  ypos 6246
+ }
+ Crop {
+  box {0 0 {format.r} {format.t}}
+  crop false
+  name Crop5
+  xpos 2297
+  ypos 6308
+ }
+push $N4a33d900
+ Transform {
+  scale 2
+  center {{format.x} {format.y}}
+  name Transform1
+  label "Bottom Left"
+  xpos 2157
+  ypos 6246
+ }
+ Crop {
+  box {0 0 {format.r} {format.t}}
+  crop false
+  name Crop2
+  xpos 2157
+  ypos 6301
+ }
+push $N4a33d900
+ Transform {
+  scale 2
+  center {{format.x+format.r} {format.y+format.t}}
+  name Transform3
+  label "Top Right"
+  xpos 1996
+  ypos 6238
+ }
+ Crop {
+  box {0 0 {format.r} {format.t}}
+  crop false
+  name Crop4
+  xpos 1996
+  ypos 6303
+ }
+push $N4a33d900
+ Transform {
+  scale 2
+  center {{format.x} {format.y+format.t}}
+  name Transform2
+  label "Top Left"
+  xpos 1869
+  ypos 6237
+ }
+ Crop {
+  box {0 0 {format.r} {format.t}}
+  crop false
+  name Crop3
+  xpos 1869
+  ypos 6303
+ }
+push $N4a33d900
+ Crop {
+  box {0 0 {format.r} {format.t}}
+  crop false
+  name Crop1
+  xpos 1745
+  ypos 6299
+ }
+push $N4a2f3000
+ Switch {
+  inputs 6
+  which {{parent.borders}}
+  name Switch6
+  xpos 1358
+  ypos 6579
+ }
+ Switch {
+  inputs 2
+  which {{parent.sbs}}
+  name Switch5
+  xpos 1358
+  ypos 6805
+ }
+ Output {
+  name Output1
+  xpos 1358
+  ypos 7338
+ }
+push $N20fb5800
+push 0
+ Viewer {
+  inputs 2
+  frame_range 1-100
+  input_number 1
+  monitorOutNDISenderName "NukeX - untitled - Viewer1"
+  name Viewer1
+  xpos -3536
+  ypos 4335
+ }
+end_group

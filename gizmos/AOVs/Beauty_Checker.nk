@@ -1,0 +1,568 @@
+set cut_paste_input [stack 0]
+version 15.1 v2
+push $cut_paste_input
+Group {
+ name Beauty_Checker2
+ tile_color 0x83be9cff
+ selected true
+ xpos -15040
+ ypos -1999
+ addUserKnob {20 properties l Properties}
+ addUserKnob {4 RenderEngine l "Render Engine" t "Wich render engine has been aplied to render.\n\n\n\n\nMaya ARNOLD\n     - Default render arnold\n     - No changes applied on the naming of AOVs\n\nMaya RENDERMAN\n     - NOT SUPERTED\n\n\n\nHoudini ARNOLD\n     - NOT SUPORTED\n\nHoudini KARMA\n     - NOT SUPORTED\n\n\n\nBlender CYCLES\n     - Default render cycples\n     - No changes applied on the namings of AOVs\n\nBlender EEVEE\n     - NOT SUPORTED\n\nBlender RENDERMAN\n     - NOT SUPORTED" M {"Maya ARNOLD" "Maya RENDERMAN" "Houdini ARNOLD" "Houdini KARMA" "Blender CYCLES" "Blender EEVEE" "Blender RENDERMAN" "" "" "" "" "" "" "" "" "" "" "" ""}}
+ addUserKnob {6 Diffuse +STARTLINE}
+ Diffuse true
+ addUserKnob {6 Specular +STARTLINE}
+ Specular true
+ addUserKnob {6 Transmission +STARTLINE}
+ Transmission true
+ addUserKnob {6 SSS +STARTLINE}
+ SSS true
+ addUserKnob {6 Coat +STARTLINE}
+ Coat true
+ addUserKnob {6 Sheen +STARTLINE}
+ Sheen true
+ addUserKnob {6 Emission +STARTLINE}
+ Emission true
+}
+ BackdropNode {
+  inputs 0
+  name BackdropNode35
+  note_font_size 100
+  xpos -1773
+  ypos -913
+  appearance Border
+  bdwidth 4402
+  bdheight 1268
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode1
+  tile_color 0x7192c6ff
+  label "sss\n"
+  note_font_size 42
+  xpos -50
+  ypos -849
+  appearance Border
+  bdwidth 622
+  bdheight 292
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode2
+  tile_color 0x7192c6ff
+  label "coat\n"
+  note_font_size 42
+  xpos -731
+  ypos -849
+  appearance Border
+  bdwidth 622
+  bdheight 292
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode3
+  tile_color 0x7192c6ff
+  label "sheen\n"
+  note_font_size 42
+  xpos -1375
+  ypos -847
+  appearance Border
+  bdwidth 622
+  bdheight 292
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode36
+  tile_color 0x7192c6ff
+  label glossy
+  note_font_size 42
+  xpos 1302
+  ypos -848
+  appearance Border
+  bdwidth 599
+  bdheight 286
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode37
+  tile_color 0x7192c6ff
+  label "transmission\n"
+  note_font_size 42
+  xpos 622
+  ypos -849
+  appearance Border
+  bdwidth 622
+  bdheight 292
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode39
+  tile_color 0x7192c6ff
+  label "emission\n"
+  note_font_size 42
+  xpos -1683
+  ypos -848
+  appearance Border
+  bdwidth 256
+  bdheight 298
+  z_order 1
+ }
+ BackdropNode {
+  inputs 0
+  name BackdropNode40
+  tile_color 0x7192c6ff
+  label diffuse
+  note_font_size 42
+  xpos 1948
+  ypos -848
+  appearance Border
+  bdwidth 630
+  bdheight 288
+  z_order 1
+ }
+ Input {
+  inputs 0
+  name Input
+  xpos 2777
+  ypos -2146
+ }
+ Dot {
+  name Dot164
+  xpos 2811
+  ypos -755
+ }
+set Nad80e800 [stack 0]
+ Dot {
+  name Dot165
+  xpos 2373
+  ypos -755
+ }
+set Nad80ec00 [stack 0]
+ Dot {
+  name Dot166
+  xpos 2073
+  ypos -755
+ }
+set Nad80f000 [stack 0]
+ Dot {
+  name Dot168
+  xpos 1706
+  ypos -755
+ }
+set Nad80f400 [stack 0]
+ Dot {
+  name Dot169
+  xpos 1406
+  ypos -755
+ }
+set Nad80f800 [stack 0]
+ Dot {
+  name Dot176
+  xpos 1069
+  ypos -755
+ }
+set Nad80fc00 [stack 0]
+ Dot {
+  name Dot177
+  xpos 769
+  ypos -755
+ }
+set Nad86c000 [stack 0]
+ Dot {
+  name Dot2
+  xpos 397
+  ypos -755
+ }
+set Nad86c400 [stack 0]
+ Dot {
+  name Dot3
+  xpos 97
+  ypos -755
+ }
+set Nad86c800 [stack 0]
+ Dot {
+  name Dot5
+  xpos -284
+  ypos -755
+ }
+set Nad86cc00 [stack 0]
+ Dot {
+  name Dot6
+  xpos -584
+  ypos -755
+ }
+set Nad86d000 [stack 0]
+ Dot {
+  name Dot8
+  xpos -928
+  ypos -753
+ }
+set Nad86d400 [stack 0]
+ Dot {
+  name Dot10
+  xpos -1228
+  ypos -753
+ }
+set Nad86d800 [stack 0]
+ Dot {
+  name Dot181
+  xpos -1590
+  ypos -755
+ }
+add_layer {emission emission.red emission.green emission.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 emission
+  fromInput2 {{0} B}
+  mappings "4 emission.red 0 0 rgba.red 0 0 emission.green 0 1 rgba.green 0 1 emission.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle13
+  label "\[value in1]"
+  xpos -1624
+  ypos -664
+ }
+ Dot {
+  name Dot182
+  xpos -1590
+  ypos 115
+ }
+push $Nad86d800
+add_layer {sheen_direct sheen_direct.red sheen_direct.green sheen_direct.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 sheen_direct
+  fromInput2 {{0} B}
+  mappings "4 sheen_direct.red 0 0 rgba.red 0 0 sheen_direct.green 0 1 rgba.green 0 1 sheen_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle6
+  label "\[value in1]"
+  xpos -1262
+  ypos -662
+ }
+ Dot {
+  name Dot11
+  xpos -1228
+  ypos -495
+ }
+push $Nad86d400
+add_layer {sheen_indirect sheen_indirect.red sheen_indirect.green sheen_indirect.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 sheen_indirect
+  fromInput2 {{0} B}
+  mappings "4 sheen_indirect.red 0 0 rgba.red 0 0 sheen_indirect.green 0 1 rgba.green 0 1 sheen_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle7
+  label "\[value in1]"
+  xpos -962
+  ypos -663
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge5
+  xpos -962
+  ypos -498
+ }
+ Dot {
+  name Dot12
+  xpos -928
+  ypos 46
+ }
+push $Nad86d000
+add_layer {coat_direct coat_direct.red coat_direct.green coat_direct.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 coat_direct
+  fromInput2 {{0} B}
+  mappings "4 coat_direct.red 0 0 rgba.red 0 0 coat_direct.green 0 1 rgba.green 0 1 coat_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle4
+  label "\[value in1]"
+  xpos -618
+  ypos -664
+ }
+ Dot {
+  name Dot7
+  xpos -584
+  ypos -497
+ }
+push $Nad86cc00
+add_layer {coat_indirect coat_indirect.red coat_indirect.green coat_indirect.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 coat_indirect
+  fromInput2 {{0} B}
+  mappings "4 coat_indirect.red 0 0 rgba.red 0 0 coat_indirect.green 0 1 rgba.green 0 1 coat_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle5
+  label "\[value in1]"
+  xpos -318
+  ypos -664
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge3
+  xpos -318
+  ypos -500
+ }
+ Dot {
+  name Dot9
+  xpos -284
+  ypos -22
+ }
+push $Nad86c800
+add_layer {sss_direct sss_direct.red sss_direct.green sss_direct.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 sss_direct
+  fromInput2 {{0} B}
+  mappings "4 sss_direct.red 0 0 rgba.red 0 0 sss_direct.green 0 1 rgba.green 0 1 sss_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle2
+  label "\[value in1]"
+  xpos 63
+  ypos -664
+ }
+ Dot {
+  name Dot4
+  xpos 97
+  ypos -495
+ }
+push $Nad86c400
+add_layer {sss_indirect sss_indirect.red sss_indirect.green sss_indirect.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 sss_indirect
+  fromInput2 {{0} B}
+  mappings "4 sss_indirect.red 0 0 rgba.red 0 0 sss_indirect.green 0 1 rgba.green 0 1 sss_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle3
+  label "\[value in1]"
+  xpos 363
+  ypos -664
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge2
+  xpos 363
+  ypos -498
+ }
+ Dot {
+  name Dot184
+  xpos 397
+  ypos -91
+ }
+push $Nad86c000
+add_layer {Transmission_Direct Transmission_Direct.red Transmission_Direct.green Transmission_Direct.blue Transmission_Direct.alpha}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Transmission_Direct
+  fromInput2 {{0} B}
+  mappings "4 Transmission_Direct.red 0 0 rgba.red 0 0 Transmission_Direct.green 0 1 rgba.green 0 1 Transmission_Direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle61
+  label "\[value in1]"
+  xpos 735
+  ypos -664
+ }
+ Dot {
+  name Dot186
+  xpos 769
+  ypos -497
+ }
+push $Nad80fc00
+add_layer {Transmission_Indirect Transmission_Indirect.red Transmission_Indirect.green Transmission_Indirect.blue Transmission_Indirect.alpha}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 Transmission_Indirect
+  fromInput2 {{0} B}
+  mappings "4 Transmission_Indirect.red 0 0 rgba.red 0 0 Transmission_Indirect.green 0 1 rgba.green 0 1 Transmission_Indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle62
+  label "\[value in1]"
+  xpos 1035
+  ypos -664
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge13
+  xpos 1035
+  ypos -500
+ }
+ Dot {
+  name Dot187
+  xpos 1069
+  ypos -160
+ }
+push $Nad80f800
+add_layer {specular_direct specular_direct.red specular_direct.green specular_direct.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 specular_direct
+  fromInput2 {{0} B}
+  mappings "4 specular_direct.red 0 0 rgba.red 0 0 specular_direct.green 0 1 rgba.green 0 1 specular_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle66
+  label "\[value in1]"
+  xpos 1372
+  ypos -664
+ }
+ Dot {
+  name Dot189
+  xpos 1406
+  ypos -497
+ }
+push $Nad80f400
+add_layer {specular_indirect specular_indirect.red specular_indirect.green specular_indirect.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 specular_indirect
+  fromInput2 {{0} B}
+  mappings "4 specular_indirect.red 0 0 rgba.red 0 0 specular_indirect.green 0 1 rgba.green 0 1 specular_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle67
+  label "\[value in1]"
+  xpos 1672
+  ypos -664
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge78
+  xpos 1672
+  ypos -500
+ }
+ Dot {
+  name Dot190
+  xpos 1706
+  ypos -228
+ }
+push $Nad80f000
+add_layer {diffuse_direct diffuse_direct.red diffuse_direct.green diffuse_direct.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 diffuse_direct
+  fromInput2 {{0} B}
+  mappings "4 diffuse_direct.red 0 0 rgba.red 0 0 diffuse_direct.green 0 1 rgba.green 0 1 diffuse_direct.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle69
+  label "\[value in1]"
+  xpos 2039
+  ypos -664
+ }
+ Dot {
+  name Dot192
+  xpos 2073
+  ypos -497
+ }
+push $Nad80ec00
+add_layer {diffuse_indirect diffuse_indirect.red diffuse_indirect.green diffuse_indirect.blue}
+ Shuffle2 {
+  fromInput1 {{0} B}
+  in1 diffuse_indirect
+  fromInput2 {{0} B}
+  mappings "4 diffuse_indirect.red 0 0 rgba.red 0 0 diffuse_indirect.green 0 1 rgba.green 0 1 diffuse_indirect.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle70
+  label "\[value in1]"
+  xpos 2339
+  ypos -664
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  name Merge80
+  xpos 2339
+  ypos -500
+ }
+ Dot {
+  name Dot1
+  xpos 2373
+  ypos -297
+ }
+push 0
+ Merge2 {
+  inputs 2
+  mix {{parent.Diffuse}}
+  name Diffuse
+  xpos 2456
+  ypos -300
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  mix {{parent.Specular}}
+  name Specular
+  xpos 2456
+  ypos -231
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  mix {{parent.Transmission}}
+  name Transmission
+  xpos 2456
+  ypos -163
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  mix {{parent.SSS}}
+  name SSS
+  xpos 2456
+  ypos -94
+ }
+ Merge2 {
+  inputs 2
+  mix {{parent.Coat}}
+  name coat
+  xpos 2456
+  ypos -25
+ }
+ Merge2 {
+  inputs 2
+  mix {{parent.Sheen}}
+  name sheen
+  xpos 2456
+  ypos 43
+ }
+ Merge2 {
+  inputs 2
+  operation plus
+  mix {{parent.Emission}}
+  name Emission
+  xpos 2456
+  ypos 112
+ }
+ Dot {
+  name Dot193
+  xpos 2490
+  ypos 528
+ }
+push $Nad80e800
+ Shuffle2 {
+  fromInput1 {{0} B}
+  fromInput2 {{0} B}
+  name Shuffle1
+  label "\[value in1]"
+  xpos 2777
+  ypos -656
+ }
+ Merge2 {
+  inputs 2
+  operation from
+  name Merge1
+  xpos 2777
+  ypos 525
+ }
+ Output {
+  name Output1
+  xpos 2777
+  ypos 2081
+ }
+ Viewer {
+  inputs 0
+  frame_range 1001-2991
+  input_number 1
+  monitorOutNDISenderName "NukeX - compoBuilderNodesGeneral - Viewer1"
+  name Viewer1
+  xpos 2539
+  ypos 774
+ }
+end_group
