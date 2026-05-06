@@ -10,10 +10,7 @@ from variables import CCVariables
 ccVars = CCVariables()
 
 # ----- Directory paths -----
-PLUGIN_DIR = ccVars.PLUGIN_DIR
-ICONS_DIR  = ccVars.ICONS_DIR
-TEMPLATES_DIR = ccVars.TEMPLATES_DIR
-GIZMOS_DIR = ccVars.GIZMOS_DIR
+
 
 
 
