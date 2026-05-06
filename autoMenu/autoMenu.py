@@ -36,7 +36,7 @@ def _icon(filename):
 def _label(raw_name):
     """Convert a snake_case or CamelCase filename into a readable menu label"""
     import re
-    words = re.sub(r"([A-Z])", r" \1", raw_name.replace("_", " ")).split()
+    words = re.sub(r"([A-Z])", r" \1", raw_name.replace("_", " ")).split() # Improve naming conention handeling, very poor right now
     return " ".join(w.capitalize() for w in words if w)
  
  
