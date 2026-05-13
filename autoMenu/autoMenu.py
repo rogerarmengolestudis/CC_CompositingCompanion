@@ -44,6 +44,10 @@ def _load_template(path):
 def _load_gizmo(name):
     """Create a gizmo node by class name (Nuke must have it on its plugin path)"""
     nuke.createNode(name)
+
+
+def _run_tool(path):
+    exec(open(path).read(), {"__file__":path})
  
  
 
@@ -61,6 +65,10 @@ def _make_template_command(path):
 def _make_gizmo_command(name):
     return lambda n=name: _load_gizmo(n)
 
+
+def _make_tool_command(path):
+    return lambda p=path: _run_tool(p)
+
     
 
 
@@ -77,6 +85,7 @@ class CCMenuBuilder:
         self.gizmosDir    = os.path.join(pluginRoot, "gizmos")
         self.iconsDir     = os.path.join(pluginRoot, "icons")
         self.externalDir  = os.path.join(pluginRoot, "external")
+        self.toolsDir     = os.path.join(pluginRoot, "tools")
  
         # Register gizmos dirs with Nuke
         if os.path.isdir(self.gizmosDir):
@@ -97,6 +106,10 @@ class CCMenuBuilder:
             self._buildGizmosMenu(tb_ccMenu)
             # ----- External submenu -----
             self._buildExternalMenu(tb_ccMenu)
+
+            menubar = nuke.menu("Nuke")
+            mb_ccMenu = menubar.addMenu("CompositingCompanion")
+            self._buildToolsMenu(mb_ccMenu)
 
         except Exception as e:
             nuke.message("[CC] Error when building menu: {}".format(e))
@@ -124,6 +137,12 @@ class CCMenuBuilder:
         externalMenu = parentMenu.addMenu("External", icon = _icon("externalIcon"))
         self._scanDirectory(self.externalDir, externalMenu, ".gizmo", _make_gizmo_command)
         self._scanDirectory(self.externalDir, externalMenu, ".nk", _make_template_command)
+
+    
+
+    def _buildToolsMenu(self, parentMenu):
+        """Build the top menu"""
+        self._scanDirectory(self.toolsDir, parentMenu, ".py", _make_tool_command)
 
     
 
