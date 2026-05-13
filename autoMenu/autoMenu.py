@@ -94,6 +94,8 @@ class CCMenuBuilder:
             self._buildTemplatesMenu(tb_ccMenu)
             # ----- Gizmos submenu -----
             self._buildGizmosMenu(tb_ccMenu)
+            # ----- External submenu -----
+            self._buildExternalMenu(tb_ccMenu)
 
         except Exception as e:
             nuke.message("[CC] Error when building menu: {}".format(e))
@@ -103,16 +105,25 @@ class CCMenuBuilder:
 
     def _buildTemplatesMenu(self, parentMenu):
         """Build the "Templates" submenu"""
-        templatesMenu = parentMenu.addMenu("Templates", icon = _icon("templateIcon"))
+        templatesMenu = parentMenu.addMenu("CC_Templates", icon = _icon("templateIcon"))
         self._scanDirectory(self.templatesDir, templatesMenu, ".nk", _make_template_command)
 
 
     
     def _buildGizmosMenu(self, parentMenu):
         """Build the "Gizmos" submenu"""
-        gizmosMenu = parentMenu.addMenu("Gizmos", icon = _icon("gizmoIcon"))
+        gizmosMenu = parentMenu.addMenu("CC_Gizmos", icon = _icon("gizmoIcon"))
         self._scanDirectory(self.gizmosDir, gizmosMenu, ".gizmo", _make_gizmo_command)
         self._scanDirectory(self.gizmosDir, gizmosMenu, ".nk", _make_template_command)
+    
+
+
+    def _buildExternalMenu(self, parentMenu):
+        """Build the "External" submenu (for items that are not stored in the plugin folders)"""
+        externalMenu = parentMenu.addMenu("External", icon = _icon("externalIcon"))
+        self._scanDirectory(self.gizmosDir, externalMenu, ".gizmo", _make_gizmo_command)
+        self._scanDirectory(self.gizmosDir, externalMenu, ".nk", _make_template_command)
+
     
 
 
