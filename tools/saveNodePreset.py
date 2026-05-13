@@ -5,12 +5,14 @@
 import nuke
 import os
 
+from collections import OrderedDict
+
 from variables import CCVariables
 ccVars = CCVariables()
 
 # Where to save
-def get_output_path(pluginRoot):
-    dir = os.path.join(pluginRoot, "defaults", "nodes")
+def get_output_path(nodeName):
+    dir = os.path.join(ccVars.PLUGIN_DIR, "defaults", f"{nodeName}.py")
     return dir
  
  
@@ -55,27 +57,31 @@ def collect_presets(node):
  
  
 def save_presets():
-    nodes = nuke.selectedNodes()
-    if not nodes:
+
+    # Get Node Info
+    node = nuke.selectedNode()
+    if not node:
         nuke.message("Select at least one node first.")
         return
- 
+    
+    nodeName = node.Class()
+
     all_presets = []
-    for node in nodes:
-        all_presets.extend(collect_presets(node))
+    all_presets.extend(collect_presets(node))
  
     if not all_presets:
         nuke.message("No knob differences found vs factory defaults.")
         return
- 
-    output_path = get_output_path()
+    
+    # Get path
+    output_path = get_output_path(nodeName)
  
     # Group by node class for readable output
-    from collections import OrderedDict
     groups = OrderedDict()
     for cls, knob, value in all_presets:
         groups.setdefault(cls, []).append((knob, value))
  
+    # Structure File
     lines = []
     lines.append("import nuke")
     lines.append("")
@@ -91,6 +97,5 @@ def save_presets():
         f.write("\n".join(lines))
  
     nuke.message("Saved {} preset(s) to:\n{}".format(len(all_presets), output_path))
- 
- 
+
 save_presets()
