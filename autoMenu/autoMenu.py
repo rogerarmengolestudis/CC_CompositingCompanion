@@ -108,7 +108,7 @@ class CCMenuBuilder:
             self._buildExternalMenu(tb_ccMenu)
 
             menubar = nuke.menu("Nuke")
-            mb_ccMenu = menubar.addMenu("CompositingCompanion")
+            mb_ccMenu = menubar.addMenu("[CC]")
             self._buildToolsMenu(mb_ccMenu)
 
         except Exception as e:
