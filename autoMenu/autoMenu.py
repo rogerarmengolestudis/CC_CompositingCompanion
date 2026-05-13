@@ -26,7 +26,6 @@ def _icon(filename):
     """Return the absolute path for an icon file, or None if it doesn't exist."""
 
     path = os.path.join(ICONS_DIR, f"{filename}.png")
-    print("[CC] Looking for icon: {}".format(path))
 
     if path is None:
         path = os.path.join(ICONS_DIR, "missingIcon.png")
@@ -34,10 +33,7 @@ def _icon(filename):
     return path
 
 def _label(raw_name):
-    """Convert a snake_case or CamelCase filename into a readable menu label"""
-    import re
-    words = re.sub(r"([A-Z])", r" \1", raw_name.replace("_", " ")).split() # Improve naming conention handeling, very poor right now
-    return " ".join(w.capitalize() for w in words if w)
+    return raw_name.replace("_", " ")
  
  
 def _load_template(path):
@@ -122,7 +118,6 @@ class CCMenuBuilder:
 
     def _scanDirectory(self, directory, parentMenu, extension, commandFn):
         """Scan directory and create sub menus and items"""
-        print("[CC] ---------------------------------------------------------------")
         try:
             entries = sorted(os.listdir(directory))
         except OSError as e:
@@ -131,15 +126,12 @@ class CCMenuBuilder:
         
         for entry in entries:
             path = os.path.join(directory, entry)
-            print("[CC] Scanning: {}".format(path))
 
             if os.path.isdir(path):
 
                 # Get element basics
                 sub_label = _label(entry)
-                print(f"[CC] sub_label: {sub_label}")
                 sub_icon = _icon(entry)
-                print(f"[CC] sub_icon: {sub_icon}")
 
                 # Create Submenu and scan it recursively
                 sub_menu = parentMenu.addMenu(sub_label, icon=sub_icon)
@@ -147,11 +139,8 @@ class CCMenuBuilder:
             
             if os.path.isfile(path) and entry.lower().endswith(extension):
                 entry_name = entry[:-len(extension)]
-                print(f"[CC] entry_name: {entry_name}")
                 entry_label = _label(entry_name)
-                print(f"[CC] entry_label: {entry_label}")
                 entry_icon = _icon(entry_name)
-                print(f"[CC] entry_icon: {entry_icon}")
 
                 parentMenu.addCommand(entry_label, commandFn(path), icon=entry_icon)
 
