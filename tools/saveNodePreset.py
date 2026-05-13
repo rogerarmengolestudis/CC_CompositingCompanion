@@ -11,8 +11,8 @@ from variables import CCVariables
 ccVars = CCVariables()
 
 # Where to save
-def get_output_path(nodeName):
-    dir = os.path.join(ccVars.PLUGIN_DIR, "defaults", f"{nodeName}.py")
+def get_output_path():
+    dir = os.path.join(ccVars.PLUGIN_DIR, "defaults", "nodeDefaults.py")
     return dir
  
  
@@ -74,7 +74,7 @@ def save_presets():
         return
     
     # Get path
-    output_path = get_output_path(nodeName)
+    output_path = get_output_path()
  
     # Group by node class for readable output
     groups = OrderedDict()
@@ -83,7 +83,6 @@ def save_presets():
  
     # Structure File
     lines = []
-    lines.append("import nuke")
     lines.append("")
     for cls, knobs in groups.items():
         lines.append("# " + cls)
@@ -93,7 +92,7 @@ def save_presets():
             lines.append('nuke.knobDefault("{}.{}", "{}")'.format(cls, knob, safe_value))
         lines.append("")
  
-    with open(output_path, "w") as f:
+    with open(output_path, "a") as f:
         f.write("\n".join(lines))
  
     nuke.message("Saved {} preset(s) to:\n{}".format(len(all_presets), output_path))

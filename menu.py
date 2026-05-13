@@ -6,6 +6,10 @@ from autoMenu import autoMenu
 from variables import CCVariables
 ccVars = CCVariables()
 
+from defaults import nodeDefaults
+
+nodeDefaults
+
 
 
 

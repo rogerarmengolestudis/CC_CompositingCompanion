@@ -9,3 +9,4 @@ class CCVariables:
     ICONS_DIR = os.path.join(os.path.dirname(__file__), "icons")
     TEMPLATES_DIR = os.path.join(os.path.dirname(__file__), "templates")
     GIZMOS_DIR = os.path.join(os.path.dirname(__file__), "gizmos")
+    DEFAULTS_DIR = os.path.join(os.path.dirname(__file__), "defaults")

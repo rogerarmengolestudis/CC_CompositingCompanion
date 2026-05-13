@@ -11,9 +11,10 @@ ccVars = CCVariables()
 # Path registration
 PLUGIN_DIR = ccVars.PLUGIN_DIR
 ICONS_DIR  = ccVars.ICONS_DIR
+DEFAULTS_DIR = ccVars.DEFAULTS_DIR
 
 nuke.pluginAddPath(PLUGIN_DIR)
 nuke.pluginAddPath(ICONS_DIR)
 
-nuke.pluginAddPath(os.path.join(PLUGIN_DIR, "defaults"))
+#nuke.pluginAddPath(DEFAULTS_DIR)
 
