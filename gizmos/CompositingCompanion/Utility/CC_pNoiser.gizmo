@@ -1,0 +1,352 @@
+#! E:/Programs/Foundry/Nuke/Nuke_v15_2/nuke-15.2.9.dll -nx
+version 15.2 v9
+Gizmo {
+ tile_color 0x35b267ff
+ disable_group_view true
+ addUserKnob {20 general_TAB l General}
+ addUserKnob {26 Strength_TXT l "" +STARTLINE T "<font color=#4cc799><font size=\"4\"><b><br>\nStrength"}
+ addUserKnob {7 rSize l "Red Strength"}
+ rSize 0.5
+ addUserKnob {7 gSize l "Green Strength"}
+ gSize 0.5
+ addUserKnob {7 bSize l "Blue Strength"}
+ bSize 0.5
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {26 size_TXT l "" +STARTLINE T "<font color=#4cc799><font size=\"4\"><b><br>\nSize"}
+ addUserKnob {7 redSize l "Red Size" R 0 100}
+ redSize 10
+ addUserKnob {7 greenSize l "Green Size" R 0 100}
+ greenSize 10
+ addUserKnob {7 blueSize l "Blue Size" R 0 100}
+ blueSize 10
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {26 offset_TXT l "" +STARTLINE T "<font color=#4cc799><font size=\"4\"><b><br>\nOffset"}
+ addUserKnob {7 rOffset l "Red Offset" R 0 10}
+ addUserKnob {7 gOffset l "Green Offset" R 0 10}
+ gOffset 1
+ addUserKnob {7 bOffset l "Blue Offset" R 0 10}
+ bOffset 2
+ addUserKnob {26 "" +STARTLINE}
+ addUserKnob {26 general_TXT l "" +STARTLINE T "<font color=#4cc799><font size=\"4\"><b><br>\nGeneral"}
+ addUserKnob {4 projectMethod l "Project Method" M {UV Pref P}}
+ projectMethod Pref
+ addUserKnob {7 size l Size t "Projection Size of P and Pref"}
+ size 10
+ addUserKnob {6 premult l Premult +STARTLINE}
+ premult true
+ addUserKnob {7 mix l Mix R 0 10}
+ mix 1
+ addUserKnob {26 ""}
+ addUserKnob {26 signature l "" +STARTLINE T "<font color=#aaaaaa><font size=\"4\">pNoiser</font><font size=\"3\"> v1.0.0 - by Roger Armengol Martí</font>"}
+}
+ Input {
+  inputs 0
+  name Input
+  xpos 301
+  ypos -322
+ }
+ Dot {
+  name Dot2
+  xpos 335
+  ypos -217
+ }
+set N362d4000 [stack 0]
+ Dot {
+  name Dot10
+  xpos 335
+  ypos 417
+ }
+set N43a85400 [stack 0]
+push $N362d4000
+ Unpremult {
+  name Unpremult1
+  xpos 183
+  ypos -220
+  disable {{!parent.premult}}
+ }
+ Dot {
+  name Dot3
+  xpos 101
+  ypos -217
+ }
+set N9621a400 [stack 0]
+ Dot {
+  name Dot5
+  xpos -33
+  ypos -217
+ }
+set Na1836800 [stack 0]
+ Dot {
+  name Dot7
+  xpos -205
+  ypos -217
+ }
+add_layer {P P.X P.Y P.Z P.x P.y P.z P.red P.green P.blue P.alpha}
+ Shuffle2 {
+  fromInput1 {
+   {0}
+   B
+  }
+  in1 P
+  fromInput2 {
+   {0}
+   B
+  }
+  mappings "4 black -1 -1 rgba.alpha 0 3 P.x 0 3 rgba.red 0 0 P.y 0 4 rgba.green 0 1 P.z 0 5 rgba.blue 0 2"
+  name Shuffle3
+  xpos -239
+  ypos -195
+ }
+ Multiply {
+  value {{parent.size}}
+  name Multiply5
+  xpos -239
+  ypos -145
+ }
+ Expression {
+  expr0 r-floor(r)
+  expr1 g-floor(g)
+  expr2 b-floor(b)
+  name Expression4
+  xpos -239
+  ypos -66
+ }
+set N9564a800 [stack 0]
+ Dot {
+  name Dot9
+  xpos -205
+  ypos 107
+ }
+push $Na1836800
+add_layer {Pref Pref.red Pref.green Pref.blue Pref.alpha}
+ Shuffle2 {
+  fromInput1 {
+   {0}
+   B
+  }
+  in1 Pref
+  fromInput2 {
+   {0}
+   B
+  }
+  mappings "4 Pref.red 0 0 rgba.red 0 0 Pref.green 0 1 rgba.green 0 1 Pref.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle1
+  xpos -67
+  ypos -193
+ }
+ Multiply {
+  value {{parent.size}}
+  name Multiply4
+  xpos -67
+  ypos -143
+ }
+ Expression {
+  expr0 r-floor(r)
+  expr1 g-floor(g)
+  expr2 b-floor(b)
+  name Expression3
+  xpos -67
+  ypos -64
+ }
+ Dot {
+  name Dot6
+  xpos -33
+  ypos -18
+ }
+push $N9621a400
+add_layer {uv_extra uv_extra.red uv_extra.green uv_extra.blue}
+ Shuffle2 {
+  fromInput1 {
+   {0}
+   B
+  }
+  in1 uv_extra
+  fromInput2 {
+   {0}
+   B
+  }
+  mappings "4 uv_extra.red 0 0 rgba.red 0 0 uv_extra.green 0 1 rgba.green 0 1 uv_extra.blue 0 2 rgba.blue 0 2 black -1 -1 rgba.alpha 0 3"
+  name Shuffle2
+  xpos 67
+  ypos -184
+ }
+ Dot {
+  name Dot8
+  xpos 101
+  ypos 107
+ }
+ Switch {
+  inputs 3
+  which {{parent.projectMethod}}
+  name Switch1
+  xpos -67
+  ypos 104
+ }
+ Reformat {
+  inputs 0
+  format "2048 2048 0 0 2048 2048 1 square_2K"
+  name Reformat1
+  xpos -783
+  ypos -796
+ }
+set N9fd4a500 [stack 0]
+ Noise {
+  output {-rgba.red -rgba.green rgba.blue rgba.alpha}
+  size {{parent.blueSize}}
+  zoffset {{parent.bOffset}}
+  center {1920 800}
+  name Noise3
+  xpos -954
+  ypos -339
+ }
+ Multiply {
+  value {{parent.bSize}}
+  name Multiply3
+  xpos -791
+  ypos -339
+ }
+push $N9fd4a500
+ Noise {
+  output {-rgba.red rgba.green -rgba.blue rgba.alpha}
+  size {{parent.greenSize}}
+  zoffset {{parent.gOffset}}
+  center {1920 800}
+  name Noise2
+  xpos -954
+  ypos -446
+ }
+ Multiply {
+  value {{parent.gSize}}
+  name Multiply2
+  xpos -787
+  ypos -446
+ }
+push $N9fd4a500
+ Noise {
+  output {rgba.red -rgba.green -rgba.blue rgba.alpha}
+  size {{parent.redSize}}
+  zoffset {{parent.rOffset}}
+  center {1920 800}
+  name Noise1
+  xpos -954
+  ypos -548
+ }
+ Multiply {
+  value {{parent.rSize}}
+  name Multiply1
+  xpos -787
+  ypos -548
+ }
+push $N9fd4a500
+ Merge2 {
+  inputs 2
+  name Merge1
+  xpos -621
+  ypos -542
+ }
+ Merge2 {
+  inputs 2
+  name Merge3
+  xpos -621
+  ypos -440
+ }
+ Merge2 {
+  inputs 2
+  name Merge4
+  xpos -621
+  ypos -333
+ }
+ Expression {
+  expr0 (r*2)-1
+  expr1 (g*2)-1
+  expr2 (b*2)-1
+  name Expression1
+  label 0to1
+  xpos -621
+  ypos -283
+  disable true
+ }
+ Expression {
+  temp_name0 var
+  temp_expr0 100
+  temp_name1 rSize
+  temp_expr1 1
+  temp_name2 gSize
+  temp_expr2 1
+  temp_name3 bSize
+  temp_expr3 1
+  expr0 (r/var)/rSize
+  expr1 (g/var)/gSize
+  expr2 (b/var)/bSize
+  name Expression2
+  label scaleDown
+  xpos -621
+  ypos -144
+  disable true
+ }
+ Dot {
+  name Dot1
+  xpos -587
+  ypos 314
+ }
+ STMap {
+  inputs 2
+  uv rgb
+  name STMap1
+  xpos -67
+  ypos 305
+ }
+ Copy {
+  inputs 2
+  from0 rgba.alpha
+  to0 rgba.alpha
+  name Copy1
+  xpos -67
+  ypos 408
+  disable {{!parent.premult}}
+ }
+ Premult {
+  name Premult1
+  xpos -67
+  ypos 494
+  disable {{!parent.premult}}
+ }
+ Dot {
+  name Dot4
+  xpos -33
+  ypos 620
+ }
+push $N43a85400
+ Merge2 {
+  inputs 2
+  operation plus
+  Bchannels Pref
+  output Pref
+  mix {{parent.mix/1000}}
+  name Merge2
+  xpos 301
+  ypos 611
+ }
+ Output {
+  name Output1
+  xpos 301
+  ypos 711
+ }
+push $N9564a800
+push 0
+ Viewer {
+  inputs 2
+  frame 1025
+  frame_range 1001-1100
+  input_number 1
+  colour_sample_bbox {-0.006250000093 0.314062506 -0.005208333489 0.3151041567}
+  samplepoints {
+   {-0.006250000093 0.314062506}
+  }
+  viewerProcess "ACES 1.0 SDR-video (sRGB)"
+  monitorOutNDISenderName "NukeX - brusher_v104 - Viewer1"
+  name Viewer1
+  xpos -353
+  ypos 636
+ }
+end_group
