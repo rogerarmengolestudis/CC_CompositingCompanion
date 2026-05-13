@@ -10,3 +10,6 @@ nuke.knobDefault("Crop.crop", "false")
 
 # STMap
 nuke.knobDefault("STMap.uv", "rgb")
+
+# Viewer
+nuke.knobDefault("Viewer.hide_input", "true")

@@ -18,7 +18,7 @@ def get_output_path():
  
 # Knobs to always skip (internal / non-user knobs)
 SKIP_KNOBS = {
-    "name", "xpos", "ypos", "selected", "hide_input",
+    "name", "xpos", "ypos", "selected",
     "cached", "disable", "dope_sheet", "bookmark",
     "postage_stamp", "postage_stamp_frame",
 }
