@@ -76,6 +76,7 @@ class CCMenuBuilder:
         self.templatesDir = os.path.join(pluginRoot, "templates")
         self.gizmosDir    = os.path.join(pluginRoot, "gizmos")
         self.iconsDir     = os.path.join(pluginRoot, "icons")
+        self.externalDir  = os.path.join(pluginRoot, "external")
  
         # Register gizmos dirs with Nuke
         if os.path.isdir(self.gizmosDir):
@@ -121,8 +122,8 @@ class CCMenuBuilder:
     def _buildExternalMenu(self, parentMenu):
         """Build the "External" submenu (for items that are not stored in the plugin folders)"""
         externalMenu = parentMenu.addMenu("External", icon = _icon("externalIcon"))
-        self._scanDirectory(self.gizmosDir, externalMenu, ".gizmo", _make_gizmo_command)
-        self._scanDirectory(self.gizmosDir, externalMenu, ".nk", _make_template_command)
+        self._scanDirectory(self.externalDir, externalMenu, ".gizmo", _make_gizmo_command)
+        self._scanDirectory(self.externalDir, externalMenu, ".nk", _make_template_command)
 
     
 

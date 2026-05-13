@@ -15,4 +15,3 @@ ICONS_DIR  = ccVars.ICONS_DIR
 nuke.pluginAddPath(PLUGIN_DIR)
 nuke.pluginAddPath(ICONS_DIR)
 
-print("[CC] Compositing Companion plugin initialized successfully.")

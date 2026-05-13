@@ -10,3 +10,5 @@ ccVars = CCVariables()
 menuOperations = autoMenu.CCMenuBuilder(ccVars.PLUGIN_DIR)
 
 menuOperations.createCCMenu(pluginRoot=ccVars.PLUGIN_DIR)
+
+print("[CC] Compositing Companion plugin initialized successfully.")
