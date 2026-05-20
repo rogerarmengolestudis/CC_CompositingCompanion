@@ -13,3 +13,12 @@ nuke.knobDefault("STMap.uv", "rgb")
 
 # Viewer
 nuke.knobDefault("Viewer.hide_input", "true")
+
+# Merge2
+nuke.knobDefault("Merge2.bbox", "B")
+
+# LayerContactSheet
+nuke.knobDefault("LayerContactSheet.showLayerNames", "true")
+
+# Inpaint2
+nuke.knobDefault("Inpaint2.fillRegion", "Matte Alpha")
