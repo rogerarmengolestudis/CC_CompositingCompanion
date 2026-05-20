@@ -1,0 +1,58 @@
+{
+    "presets": [
+        {
+            "name": "COMP",
+            "color": "#2a6e4a",
+            "bold": true,
+            "italics": false,
+            "center": true,
+            "bookmark": true,
+            "size": 30
+        },
+        {
+            "name": "GRADE",
+            "color": "#6e2a2a",
+            "bold": true,
+            "italics": false,
+            "center": true,
+            "bookmark": true,
+            "size": 30
+        },
+        {
+            "name": "KEYING",
+            "color": "#2a4a6e",
+            "bold": true,
+            "italics": false,
+            "center": true,
+            "bookmark": false,
+            "size": 30
+        },
+        {
+            "name": "ROTO",
+            "color": "#5a3a6e",
+            "bold": true,
+            "italics": true,
+            "center": true,
+            "bookmark": false,
+            "size": 25
+        },
+        {
+            "name": "TRACK",
+            "color": "#6e5a2a",
+            "bold": true,
+            "italics": false,
+            "center": true,
+            "bookmark": false,
+            "size": 25
+        },
+        {
+            "name": "OUTPUT",
+            "color": "#1a1a1a",
+            "bold": true,
+            "italics": false,
+            "center": true,
+            "bookmark": true,
+            "size": 30
+        }
+    ]
+}

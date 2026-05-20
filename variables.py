@@ -10,3 +10,5 @@ class CCVariables:
     TEMPLATES_DIR = os.path.join(os.path.dirname(__file__), "templates")
     GIZMOS_DIR = os.path.join(os.path.dirname(__file__), "gizmos")
     DEFAULTS_DIR = os.path.join(os.path.dirname(__file__), "defaults")
+    SCRIPTS_DIR = os.path.join(os.path.dirname(__file__), "scripts")
+    TOOLS_DIR = os.path.join(os.path.dirname(__file__), "tools")
