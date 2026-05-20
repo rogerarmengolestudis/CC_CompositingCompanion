@@ -174,7 +174,7 @@ class CCMenuBuilder:
         for entry in entries:
             path = os.path.join(directory, entry)
 
-            if os.path.isdir(path) and entry!="__pycache__":
+            if os.path.isdir(path) and entry!="__pycache__" and entry != "utils":
 
                 # Get element basics
                 sub_label = _label(entry)
