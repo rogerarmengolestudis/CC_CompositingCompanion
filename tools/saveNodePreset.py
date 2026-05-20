@@ -100,3 +100,5 @@ def save_presets():
 
 def run():
     save_presets()
+
+keyShortCut = "Ctrl+Alt+Shift+S"

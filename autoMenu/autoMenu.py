@@ -48,6 +48,11 @@ def _load_gizmo(name):
 
 def _run_tool(path):
     exec(open(path).read(), {"__file__":path})
+
+def _run(p):
+    ns = {"__file__": p}
+    exec(open(p).read(), ns)
+    ns["run"]()
  
  
 
@@ -69,12 +74,9 @@ def _make_gizmo_command(name):
 def _make_tool_command(path):
     return lambda p=path: _run_tool(p)
 
+
 def _make_runableTool_command(path):
-    def _run(p=path):
-        ns = {"__file__": p}
-        exec(open(p).read(), ns)
-        ns["run"]()
-    return _run
+    return lambda p=path: _run(p)
 
 
 
@@ -91,6 +93,7 @@ class CCMenuBuilder:
         self.iconsDir     = os.path.join(pluginRoot, "icons")
         self.externalDir  = os.path.join(pluginRoot, "external")
         self.toolsDir     = os.path.join(pluginRoot, "tools")
+        self.scriptDir    = os.path.join(pluginRoot, "scripts")
  
         # Register gizmos dirs with Nuke
         if os.path.isdir(self.gizmosDir):
@@ -114,7 +117,10 @@ class CCMenuBuilder:
 
             menubar = nuke.menu("Nuke")
             mb_ccMenu = menubar.addMenu("[CC]")
-            self._buildToolsMenu(mb_ccMenu)
+            mb_ccMenu_tools = mb_ccMenu.addMenu("Tools")
+            mb_ccMenu_scripts = mb_ccMenu.addMenu("Scripts")
+            self._buildToolsMenu(mb_ccMenu_tools)
+            self._buildScriptsMenu(mb_ccMenu_scripts)
 
         except Exception as e:
             nuke.message("[CC] Error when building menu: {}".format(e))
@@ -148,6 +154,11 @@ class CCMenuBuilder:
     def _buildToolsMenu(self, parentMenu):
         """Build the top menu"""
         self._scanDirectory(self.toolsDir, parentMenu, ".py", _make_runableTool_command, shortcut="embeded")
+    
+
+    def _buildScriptsMenu(self, parentMenu):
+        """Build the top menu"""
+        self._scanDirectory(self.scriptDir, parentMenu, ".py", _make_runableTool_command, shortcut="embeded")
 
     
 
@@ -160,9 +171,6 @@ class CCMenuBuilder:
             print("[CC] Error accessing directory '{}': {}".format(directory, e))
             return
         
-        if extension == ".py":
-            commandFn
-        
         for entry in entries:
             path = os.path.join(directory, entry)
 
@@ -174,7 +182,7 @@ class CCMenuBuilder:
 
                 # Create Submenu and scan it recursively
                 sub_menu = parentMenu.addMenu(sub_label, icon=sub_icon)
-                self._scanDirectory(path, sub_menu, extension, commandFn)
+                self._scanDirectory(path, sub_menu, extension, commandFn, shortcut=shortcut)
             
             if os.path.isfile(path) and entry.lower().endswith(extension):
                 entry_name = entry[:-len(extension)]
@@ -182,7 +190,6 @@ class CCMenuBuilder:
                 entry_icon = _icon(entry_name)
 
                 keyShortcut=None
-
                 if shortcut == "embeded":
                     try:
                         import importlib.util
@@ -194,11 +201,10 @@ class CCMenuBuilder:
                         value = getattr(target_module, "keyShortCut", None)
 
                         keyShortcut = value
-                        print(f"shortcut for {entry} in {path} is {keyShortcut}")
                     except:
-                        pass
+                        print(f'[CC] could not load shortcut for {entry}')
 
-                parentMenu.addCommand(entry_label, commandFn(path), icon=entry_icon,shortcut=keyShortcut)
+                parentMenu.addCommand(entry_label, commandFn(path), icon=entry_icon, shortcut=keyShortcut)
 
 
 
