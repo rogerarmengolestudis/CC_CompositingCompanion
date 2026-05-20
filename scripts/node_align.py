@@ -3,13 +3,7 @@
 # //////////////////////////////////////////////////
 
 import nuke
+import os
 
 
-class Align(self):
-
-    def _init_(self):
-        
-
-    def createNode(type):
-        nuke.createNode("Blur")
-
+pass

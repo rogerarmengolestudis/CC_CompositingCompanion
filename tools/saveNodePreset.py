@@ -97,4 +97,6 @@ def save_presets():
  
     nuke.message("Saved {} preset(s) to:\n{}".format(len(all_presets), output_path))
 
-save_presets()
+
+def run():
+    save_presets()

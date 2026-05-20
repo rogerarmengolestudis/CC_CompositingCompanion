@@ -69,7 +69,12 @@ def _make_gizmo_command(name):
 def _make_tool_command(path):
     return lambda p=path: _run_tool(p)
 
-    
+def _make_runableTool_command(path):
+    def _run(p=path):
+        ns = {"__file__": p}
+        exec(open(p).read(), ns)
+        ns["run"]()
+    return _run
 
 
 
@@ -142,23 +147,26 @@ class CCMenuBuilder:
 
     def _buildToolsMenu(self, parentMenu):
         """Build the top menu"""
-        self._scanDirectory(self.toolsDir, parentMenu, ".py", _make_tool_command)
+        self._scanDirectory(self.toolsDir, parentMenu, ".py", _make_runableTool_command, shortcut="embeded")
 
     
 
 
-    def _scanDirectory(self, directory, parentMenu, extension, commandFn):
+    def _scanDirectory(self, directory, parentMenu, extension, commandFn, shortcut=False):
         """Scan directory and create sub menus and items"""
         try:
             entries = sorted(os.listdir(directory))
         except OSError as e:
-            nuke.message("[CC] Error accessing directory '{}': {}".format(directory, e))
+            print("[CC] Error accessing directory '{}': {}".format(directory, e))
             return
+        
+        if extension == ".py":
+            commandFn
         
         for entry in entries:
             path = os.path.join(directory, entry)
 
-            if os.path.isdir(path):
+            if os.path.isdir(path) and entry!="__pycache__":
 
                 # Get element basics
                 sub_label = _label(entry)
@@ -173,7 +181,24 @@ class CCMenuBuilder:
                 entry_label = _label(entry_name)
                 entry_icon = _icon(entry_name)
 
-                parentMenu.addCommand(entry_label, commandFn(path), icon=entry_icon)
+                keyShortcut=None
+
+                if shortcut == "embeded":
+                    try:
+                        import importlib.util
+
+                        spec = importlib.util.spec_from_file_location(entry, path)
+                        target_module = importlib.util.module_from_spec(spec)
+                        spec.loader.exec_module(target_module)
+
+                        value = getattr(target_module, "keyShortCut", None)
+
+                        keyShortcut = value
+                        print(f"shortcut for {entry} in {path} is {keyShortcut}")
+                    except:
+                        pass
+
+                parentMenu.addCommand(entry_label, commandFn(path), icon=entry_icon,shortcut=keyShortcut)
 
 
 
