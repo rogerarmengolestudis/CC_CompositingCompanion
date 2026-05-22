@@ -7,52 +7,25 @@
             "italics": false,
             "center": true,
             "bookmark": true,
-            "size": 30
+            "size": 25
         },
         {
-            "name": "GRADE",
-            "color": "#6e2a2a",
+            "name": "WRITE",
+            "color": "#898334",
             "bold": true,
             "italics": false,
             "center": true,
             "bookmark": true,
-            "size": 30
-        },
-        {
-            "name": "KEYING",
-            "color": "#2a4a6e",
-            "bold": true,
-            "italics": false,
-            "center": true,
-            "bookmark": false,
-            "size": 30
-        },
-        {
-            "name": "ROTO",
-            "color": "#5a3a6e",
-            "bold": true,
-            "italics": true,
-            "center": true,
-            "bookmark": false,
             "size": 25
         },
         {
-            "name": "TRACK",
-            "color": "#6e5a2a",
+            "name": "Alpha",
+            "color": "#7f7f7f",
             "bold": true,
             "italics": false,
-            "center": true,
-            "bookmark": false,
-            "size": 25
-        },
-        {
-            "name": "OUTPUT",
-            "color": "#1a1a1a",
-            "bold": true,
-            "italics": false,
-            "center": true,
+            "center": false,
             "bookmark": true,
-            "size": 30
+            "size": 25
         }
     ]
 }

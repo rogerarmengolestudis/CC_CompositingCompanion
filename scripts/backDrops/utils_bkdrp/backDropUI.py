@@ -142,6 +142,9 @@ class Window(QtWidgets.QWidget):
         self.bookmark_check = QtWidgets.QCheckBox("Bookmark")
         self.bookmark_check.setChecked(True) 
 
+        self.filled_check = QtWidgets.QCheckBox("Filled")
+        self.filled_check.setChecked(True)
+
         self.size_spb = QtWidgets.QSpinBox()
         self.size_spb.setRange(0, 200)
         self.size_spb.setSingleStep(5)
@@ -167,6 +170,7 @@ class Window(QtWidgets.QWidget):
         format_layout.addWidget(self.bold_check)
         format_layout.addWidget(self.italics_check)
         format_layout.addWidget(self.bookmark_check)
+        format_layout.addWidget(self.filled_check)
         format_layout.addWidget(self.size_spb)
         format_layout.addWidget(self.size_text)
         format_layout.addWidget(self.color_icn)
@@ -265,8 +269,9 @@ class Window(QtWidgets.QWidget):
         self.italics_check.setChecked(preset.get("italics", False))
         self.center_check.setChecked(preset.get("center", True))
         self.bookmark_check.setChecked(preset.get("bookmark", True))
+        self.filled_check.setChecked(preset.get("filled", True))
         self.size_spb.setValue(preset.get("size", 25))
-        self._current_color = preset.get("color", "#3a3a3a")
+        self.iconColor = preset.get("color", "#3a3a3a")
         self._on_run()
 
     # ------------------------------------------------------------------
@@ -275,11 +280,12 @@ class Window(QtWidgets.QWidget):
 
     def _on_run(self):
         
-        uiValue_name = self.name_field.text().strip()
+        uiValue_name = self.name_field.text()
         uiValue_center = self.center_check.isChecked()
         uiValue_bold = self.bold_check.isChecked()
         uiValue_italics = self.italics_check.isChecked()
         uiValue_bookmark = self.bookmark_check.isChecked()
+        uivalue_filled = self.filled_check.isChecked()
         uiValue_size = self.size_spb.value()
         uiValue_color = self.iconColor
         
@@ -289,11 +295,13 @@ class Window(QtWidgets.QWidget):
             "bold": uiValue_bold,
             "italics": uiValue_italics,
             "bookmark": uiValue_bookmark,
+            "filled": uivalue_filled,
             "size": uiValue_size,
             "color": uiValue_color
         }
 
         backDropFunctions.createBackDrop(uiData)
+        self.window().close()
 
 
     def _on_reset(self):
