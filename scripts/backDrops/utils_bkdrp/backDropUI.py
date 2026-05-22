@@ -20,19 +20,26 @@ except ImportError:
 import nuke
 import nukescripts
 
-#///////////////////////////////////////////////////
-PRESETS_PATH = os.path.join(os.path.dirname(__file__), "backdrop_presets.json")
+from scripts.backDrops.utils_bkdrp import backDropFunctions
 
 from variables import CCVariables
 ccVars = CCVariables()
 
 # ----- Directory paths -----
-ICONS_DIR  = ccVars.ICONS_DIR
 SCRIPTS_DIR = ccVars.SCRIPTS_DIR
+PRESETS_PATH = os.path.join(SCRIPTS_DIR, 'backDrops', 'utils_bkdrp', 'backdrop_presets.json')
 
-PRESETS_PATH = os.path.join(SCRIPTS_DIR, 'backDrops', 'utils', 'backdrop_presets.json')
+
+
+# ----- Tool Variables -----
 PRESET_COLUMNS = 3  # buttons per row in the preset grid
 
+
+
+
+# ---------------------------------------------------------------------------
+# Functions
+# ---------------------------------------------------------------------------
 
 def randomColor():
     import colorsys
@@ -45,7 +52,7 @@ def randomColor():
     r, g, b = colorsys.hls_to_rgb(h, l, s)
     return '#{:02x}{:02x}{:02x}'.format(int(r*255), int(g*255), int(b*255))
 
-def _preset_button_style(hex_color: str) -> str:
+def _preset_button_style(hex_color: str):
     """Return a stylesheet matching the colour-swatch button style, with white label."""
     return f"""
         QPushButton {{
@@ -65,21 +72,19 @@ def _preset_button_style(hex_color: str) -> str:
         }}
     """
 
-def _load_presets() -> list:
+def _load_presets():
     """Load presets from JSON. Returns [] on any error."""
     if not os.path.exists(PRESETS_PATH):
-        print(f"[backDropUI] Presets file not found: {PRESETS_PATH}")
+        print(f"[CC] Presets file not found: {PRESETS_PATH}")
         return []
     try:
         with open(PRESETS_PATH, "r") as f:
             data = json.load(f)
         return data.get("presets", [])
     except Exception as e:
-        print(f"[backDropUI] Failed to load presets: {e}")
+        print(f"[CC] Failed to load presets: {e}")
         return []
 
-
-#///////////////////////////////////////////////////
 
 
 # ---------------------------------------------------------------------------
@@ -146,12 +151,12 @@ class Window(QtWidgets.QWidget):
 
         self.color_icn = QtWidgets.QPushButton()
         self.color_icn.setEnabled(False)
-        iconColor = randomColor()
+        self.iconColor = randomColor()
         self.color_icn.setStyleSheet(f"""
             QPushButton:disabled {{
-                background-color: {iconColor};
+                background-color: {self.iconColor};
                 color: #ffffff;
-                border: 2px solid {iconColor};
+                border: 2px solid {self.iconColor};
                 border-radius: 4px;      
                 font-weight: bold;
                 font-size: 14px;
@@ -179,12 +184,14 @@ class Window(QtWidgets.QWidget):
         btn_row.addWidget(self.cancel_btn)
         root_layout.addLayout(btn_row)
 
+        root_layout.addWidget(self._make_separator())
+
         # ---- Presets ----
         presets_header_row = QtWidgets.QHBoxLayout()
         presets_label = QtWidgets.QLabel("Presets")
         presets_label.setStyleSheet("font-weight: bold; font-size: 13px;")
         self.reload_btn = QtWidgets.QPushButton("Reload")
-        self.reload_btn.setFixedWidth(28)
+        self.reload_btn.setFixedWidth(50)
         self.reload_btn.setToolTip("Reload presets from JSON")
         presets_header_row.addWidget(presets_label)
         presets_header_row.addStretch()
@@ -260,29 +267,34 @@ class Window(QtWidgets.QWidget):
         self.bookmark_check.setChecked(preset.get("bookmark", True))
         self.size_spb.setValue(preset.get("size", 25))
         self._current_color = preset.get("color", "#3a3a3a")
-        self._apply_swatch_style(self._current_color)
+        self._on_run()
 
     # ------------------------------------------------------------------
     # Slots / Logic
     # ------------------------------------------------------------------
 
     def _on_run(self):
-        name = self.name_field.text().strip()
-        mode = self.mode_combo.currentText()
-        enabled = self.enable_check.isChecked()
+        
+        uiValue_name = self.name_field.text().strip()
+        uiValue_center = self.center_check.isChecked()
+        uiValue_bold = self.bold_check.isChecked()
+        uiValue_italics = self.italics_check.isChecked()
+        uiValue_bookmark = self.bookmark_check.isChecked()
+        uiValue_size = self.size_spb.value()
+        uiValue_color = self.iconColor
+        
+        uiData = {
+            "name": uiValue_name,
+            "center": uiValue_center,
+            "bold": uiValue_bold,
+            "italics": uiValue_italics,
+            "bookmark": uiValue_bookmark,
+            "size": uiValue_size,
+            "color": uiValue_color
+        }
 
-        self.log(f"Running — name={name!r}, mode={mode!r}, enabled={enabled}")
+        backDropFunctions.createBackDrop(uiData)
 
-        # ---- Put your Nuke logic here ----
-        # Example: iterate selected nodes
-        selected = nuke.selectedNodes()
-        if not selected:
-            self.log("No nodes selected.")
-            return
-
-        for node in selected:
-            self.log(f"  Processing: {node.name()} ({node.Class()})")
-            # node['label'].setValue(name)  # example knob access
 
     def _on_reset(self):
         self.name_field.clear()
