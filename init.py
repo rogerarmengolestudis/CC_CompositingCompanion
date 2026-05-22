@@ -5,6 +5,9 @@
 import nuke
 import os
 
+import sys
+sys.dont_write_bytecode = True
+
 from variables import CCVariables
 ccVars = CCVariables()
 

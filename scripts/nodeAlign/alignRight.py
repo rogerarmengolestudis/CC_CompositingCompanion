@@ -4,6 +4,9 @@
 
 import nuke
 
+import sys
+sys.dont_write_bytecode = True
+
 keyShortCut = "Right"
 
 def _get_node_width(node):

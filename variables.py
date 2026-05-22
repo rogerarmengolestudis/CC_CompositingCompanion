@@ -4,6 +4,9 @@
 
 import os
 
+import sys
+sys.dont_write_bytecode = True
+
 class CCVariables:
     PLUGIN_DIR = os.path.dirname(__file__)
     ICONS_DIR = os.path.join(os.path.dirname(__file__), "icons")

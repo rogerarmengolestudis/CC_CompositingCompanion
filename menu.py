@@ -6,6 +6,9 @@ from autoMenu import autoMenu
 from variables import CCVariables
 ccVars = CCVariables()
 
+import sys
+sys.dont_write_bytecode = True
+
 from defaults import nodeDefaults
 
 nodeDefaults

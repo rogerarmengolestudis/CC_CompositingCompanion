@@ -4,6 +4,9 @@
 
 import nuke
 
+import sys
+sys.dont_write_bytecode = True
+
 keyShortCut = "Up"
 
 def align_nodes_top():
