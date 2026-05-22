@@ -25,10 +25,7 @@ GIZMOS_DIR = ccVars.GIZMOS_DIR
 def _icon(filename):
     """Return the absolute path for an icon file, or None if it doesn't exist."""
 
-    path = os.path.join(ICONS_DIR, f"{filename}.png")
-
-    if path is None:
-        path = os.path.join(ICONS_DIR, "missingIcon.png")
+    path = os.path.join(ICONS_DIR, f"{filename}_icon.png")
 
     return path
 
@@ -106,7 +103,7 @@ class CCMenuBuilder:
 
         try:
             toolbar = nuke.menu("Nodes")
-            tb_ccMenu = toolbar.addMenu("CompositingCompanion", icon = _icon("2LoudCompoBuilder"))
+            tb_ccMenu = toolbar.addMenu("CompositingCompanion", icon = _icon("compositingCompanion"))
 
             # ----- Templates submenu -----
             self._buildTemplatesMenu(tb_ccMenu)
@@ -130,14 +127,14 @@ class CCMenuBuilder:
 
     def _buildTemplatesMenu(self, parentMenu):
         """Build the "Templates" submenu"""
-        templatesMenu = parentMenu.addMenu("CC_Templates", icon = _icon("templateIcon"))
+        templatesMenu = parentMenu.addMenu("CC_Templates", icon = _icon("template"))
         self._scanDirectory(self.templatesDir, templatesMenu, ".nk", _make_template_command)
 
 
     
     def _buildGizmosMenu(self, parentMenu):
         """Build the "Gizmos" submenu"""
-        gizmosMenu = parentMenu.addMenu("CC_Gizmos", icon = _icon("gizmoIcon"))
+        gizmosMenu = parentMenu.addMenu("CC_Gizmos", icon = _icon("gizmo"))
         self._scanDirectory(self.gizmosDir, gizmosMenu, ".gizmo", _make_gizmo_command)
         self._scanDirectory(self.gizmosDir, gizmosMenu, ".nk", _make_template_command)
     

@@ -21,7 +21,7 @@ def align_nodes_bottom():
         nuke.Undo().begin('Align Nodes Bottom')
         max_bottom = max(n.ypos() + _get_node_height(n) for n in selected)
         for n in selected:
-            n.setYpos(max_bottom - _get_node_height(n))
+            n.setYpos(max_bottom - _get_node_height(n) // 2)
     finally:
         nuke.Undo().end()
 

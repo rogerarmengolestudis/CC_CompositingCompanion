@@ -16,7 +16,7 @@ def align_nodes_top():
         nuke.Undo().begin('Align Nodes Top')
         min_y = min(n.ypos() for n in selected)
         for n in selected:
-            n.setYpos(min_y)
+            n.setYpos(min_y - n.screenHeight() // 2)
     finally:
         nuke.Undo().end()
 
