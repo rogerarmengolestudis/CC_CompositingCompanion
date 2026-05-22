@@ -8,14 +8,6 @@ import nuke
 
 keyShortCut = 'Ctrl+B'
 
-
-
-
-
-
-
-
-
 def run():
     print('[CC] Backdrop creator starting')
     nodes = nuke.selectedNodes()

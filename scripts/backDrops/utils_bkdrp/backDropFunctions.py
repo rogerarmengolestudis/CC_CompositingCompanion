@@ -17,7 +17,7 @@ def _calculate_z_order(nodes, padding=100):
     if not nodes:
         return 0
 
-    Z_STEP = 10
+    Z_STEP = 1
 
     nx1 = min(n.xpos() for n in nodes) - padding
     ny1 = min(n.ypos() for n in nodes) - padding

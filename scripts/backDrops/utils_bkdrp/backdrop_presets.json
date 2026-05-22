@@ -26,6 +26,33 @@
             "center": false,
             "bookmark": true,
             "size": 25
+        },
+        {
+            "name": "Motionblur",
+            "color": "#876533",
+            "bold": true,
+            "italics": false,
+            "center": true,
+            "bookmark": true,
+            "size": 25
+        },
+        {
+            "name": "Defocus",
+            "color": "#876533",
+            "bold": true,
+            "italics": false,
+            "center": true,
+            "bookmark": true,
+            "size": 25
+        },
+        {
+            "name": "Clean",
+            "color": "#394651",
+            "bold": true,
+            "italics": false,
+            "center": false,
+            "bookmark": true,
+            "size": 25
         }
     ]
 }

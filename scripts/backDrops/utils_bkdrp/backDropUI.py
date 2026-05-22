@@ -102,6 +102,20 @@ class Window(QtWidgets.QWidget):
         self._build_ui()
         self._connect_signals()
 
+    def _on_enter_pressed(self):
+        name = self.name_field.text().strip()
+        if not name:
+            return
+
+        # Check if name matches an existing preset
+        presets = _load_presets()
+        match = next((p for p in presets if p['name'].lower() == name.lower()), None)
+
+        if match:
+            self._apply_preset(match)
+        else:
+            self._on_run()
+
     # ------------------------------------------------------------------
     # UI Construction
     # ------------------------------------------------------------------
@@ -226,6 +240,7 @@ class Window(QtWidgets.QWidget):
     # ------------------------------------------------------------------
 
     def _connect_signals(self):
+        self.name_field.returnPressed.connect(self._on_enter_pressed)
         self.create_btn.clicked.connect(self._on_run)
         self.cancel_btn.clicked.connect(self._on_reset)
     
