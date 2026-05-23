@@ -19,9 +19,9 @@ def align_nodes_left():
 
     try:
         nuke.Undo().begin('Align Nodes Left')
-        min_x = min(n.xpos() for n in selected)
+        min_center_x = min(n.xpos() + _get_node_width(n) // 2 for n in selected)
         for n in selected:
-            n.setXpos(min_x)
+            n.setXpos(min_center_x - _get_node_width(n) // 2)
     finally:
         nuke.Undo().end()
 

@@ -22,9 +22,9 @@ def align_nodes_right():
 
     try:
         nuke.Undo().begin('Align Nodes Right')
-        max_right = max(n.xpos() + _get_node_width(n) for n in selected)
+        max_center_x = max(n.xpos() + _get_node_width(n) // 2 for n in selected)
         for n in selected:
-            n.setXpos(max_right - _get_node_width(n))
+            n.setXpos(max_center_x - _get_node_width(n) // 2)
     finally:
         nuke.Undo().end()
 
