@@ -14,7 +14,7 @@ sys.dont_write_bytecode = True  # Avoid writing .pyc files
 try:
     from PySide2 import QtWidgets, QtCore, QtGui
 except ImportError:
-    from PySide6 import QtWidgets, QtCore, QtGui
+    from PySide6 import QtWidgets, QtCore, QtGui # pyright: ignore[reportMissingImports]
 
 
 import nuke
@@ -97,7 +97,7 @@ class Window(QtWidgets.QWidget):
         super(Window, self).__init__(parent)
         self.setWindowTitle("Backdrop Creator - Compositing Companion")
 
-        self.resize(400, 5000)
+        self.resize(400, 500)
 
         self._build_ui()
         self._connect_signals()
@@ -337,7 +337,7 @@ class Window(QtWidgets.QWidget):
 # ---------------------------------------------------------------------------
 
 def show_floating():
-    """Open as a standalone floating window (useful during development)."""
+    """Open window as floating."""
     app = QtWidgets.QApplication.instance() or QtWidgets.QApplication([])
     dialog = QtWidgets.QDialog()
     dialog.setWindowTitle("[CC] - Compositing Companion")

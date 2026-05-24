@@ -24,4 +24,7 @@ nuke.knobDefault("LayerContactSheet.showLayerNames", "true")
 nuke.knobDefault("Inpaint2.fillRegion", "Matte Alpha")
 
 # Blur
-nuke.knobDefault("Blur.size", "1")
+
+
+
+
