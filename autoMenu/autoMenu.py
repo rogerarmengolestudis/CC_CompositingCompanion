@@ -90,7 +90,6 @@ class CCMenuBuilder:
         self.iconsDir     = os.path.join(pluginRoot, "icons")
         self.externalDir  = os.path.join(pluginRoot, "external")
         self.toolsDir     = os.path.join(pluginRoot, "tools")
-        self.scriptDir    = os.path.join(pluginRoot, "scripts")
  
         # Register gizmos dirs with Nuke
         if os.path.isdir(self.gizmosDir):
@@ -115,9 +114,7 @@ class CCMenuBuilder:
             menubar = nuke.menu("Nuke")
             mb_ccMenu = menubar.addMenu("[CC]")
             mb_ccMenu_tools = mb_ccMenu.addMenu("Tools")
-            mb_ccMenu_scripts = mb_ccMenu.addMenu("Scripts")
             self._buildToolsMenu(mb_ccMenu_tools)
-            self._buildScriptsMenu(mb_ccMenu_scripts)
 
         except Exception as e:
             nuke.message("[CC] Error when building menu: {}".format(e))

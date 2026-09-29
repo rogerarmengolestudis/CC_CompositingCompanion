@@ -45,8 +45,8 @@ def randomColor():
     import colorsys
     import random
     h = random.random()
-    s = 0.45
-    l = random.uniform(0.4, 0.5)
+    s = random.uniform(0.25, 0.65)
+    l = random.uniform(0.25, 0.35)
     
     # HLS to RGB
     r, g, b = colorsys.hls_to_rgb(h, l, s)
