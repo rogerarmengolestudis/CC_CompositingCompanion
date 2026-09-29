@@ -1,3 +1,5 @@
 autoMenu/__pycache__
-external
+external/*
 __pycache__
+*dev*  
+*pyc

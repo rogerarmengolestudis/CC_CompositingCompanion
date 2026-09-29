@@ -192,7 +192,8 @@ class CCMenuBuilder:
 
                         keyShortcut = value
                     except:
-                        print(f'[CC] could not load shortcut for {entry}')
+                        #print(f'[CC] could not load shortcut for {entry}') 
+                        pass
 
                 parentMenu.addCommand(entry_label, commandFn(path), icon=entry_icon, shortcut=keyShortcut)
 
