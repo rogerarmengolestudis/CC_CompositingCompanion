@@ -153,10 +153,6 @@ class CCMenuBuilder:
         self._scanDirectory(self.toolsDir, parentMenu, ".py", _make_runableTool_command, shortcut="embeded")
     
 
-    def _buildScriptsMenu(self, parentMenu):
-        """Build the top menu"""
-        self._scanDirectory(self.scriptDir, parentMenu, ".py", _make_runableTool_command, shortcut="embeded")
-
     
 
 
